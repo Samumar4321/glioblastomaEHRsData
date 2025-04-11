@@ -1,8 +1,8 @@
 source("~/GitHub/glioblastomaEHRsData/Development/bin/loadTestDataset.R")
 p_load("table1")
 
-munich2019dataset$sex_male0_female1 <- 
-  factor(munich2019dataset$sex_male0_female1, 
+munich2019dataset$sex_male0_female1 <-
+  factor(munich2019dataset$sex_male0_female1,
          levels=c(0, 1),
          labels=c("Male", "Female"))
 
@@ -11,12 +11,12 @@ munich2019dataset$survived_yes1_no0 <-
          levels = c(0,1),
          labels = c("Dead", "Alive"))
 
-munich2019dataset$tumor_progression_yes1_no0 <- 
+munich2019dataset$tumor_progression_yes1_no0 <-
   factor(munich2019dataset$tumor_progression_yes1_no0,
          levels = c(0,1),
          labels = c("No", "Yes"))
 
-munich2019dataset$MGMTmethylation_methylated1_unmethylated0 <- 
+munich2019dataset$MGMTmethylation_methylated1_unmethylated0 <-
   factor(munich2019dataset$MGMTmethylation_methylated1_unmethylated0,
          levels = c(0, 1),
          labels = c("No", "Yes"))
@@ -42,6 +42,7 @@ strata <- c(split(males, males$survived_yes1_no0),
             list("Total" = subset(munich2019dataset, sex_male0_female1 == "Male")),
             split(females, females$survived_yes1_no0),
             list("Total" = subset(munich2019dataset, sex_male0_female1 == "Female")),
+            split(munich2019dataset, munich2019dataset$survived_yes1_no0),
             list("Total" = munich2019dataset))
 
 labels <- list(
@@ -56,10 +57,10 @@ labels <- list(
 rndr <- function(x, name, ...) {
   if (!is.numeric(x)) return(render.categorical.default(x))
   what <- switch(name,
-                 age_years = c("Median [Min, Max]" = "Median [Min, Max]", 
+                 age_years = c("Median [Min, Max]" = "Median [Min, Max]",
                                "Mean (SD)" = "Mean (SD)"),
                  OS_months  = c(.= "Median [Min, Max]",
-                                .= "Mean (SD)", 
+                                .= "Mean (SD)",
                                 .="Q1 - Q3"),
                  PFS_months = c(.= "Median [Min, Max]",
                                 .= "Mean (SD)",
@@ -67,4 +68,7 @@ rndr <- function(x, name, ...) {
   parse.abbrev.render.code(c("", what))(x)
 }
 
-table1(strata, labels, groupspan=c(3, 3, 1), render = rndr, topclass = "Rtable1-shade")
+table1(strata, labels, groupspan=c(3, 3, 3), render.continuous = c(.= "Median [Min, Max]",
+                                                                   .= "Mean (SD)",
+                                                                   .= "Q1 - Q3"),
+       topclass = "Rtable1-shade")
