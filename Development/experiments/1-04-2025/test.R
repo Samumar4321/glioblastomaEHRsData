@@ -52,7 +52,7 @@ labels <- list(
                  tumor_progression_yes1_no0 = render.varlabel(munich2019dataset$tumor_progression_yes1_no0),
                  MGMTmethylation_methylated1_unmethylated0=render.varlabel(munich2019dataset$MGMTmethylation_methylated1_unmethylated0),
                  cHsp70_low0_high1=render.varlabel(munich2019dataset$cHsp70_low0_high1)),
-  groups=list("Male", "Female", "Overall"))
+  groups=list("Male", "Female", ""))
 
 rndr <- function(x, name, ...) {
   if (!is.numeric(x)) return(render.categorical.default(x))
