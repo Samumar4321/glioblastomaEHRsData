@@ -47,8 +47,8 @@ t1 <- table1(~ sex_male0_female1 +
                cHsp70_low0_high1,
              data = df,
              topclass = "Rtable1-shade",
-             render.continous = c( .= "Mean [MIN - MAX]",
-                                   .= "Median (SD%)",
+             render.continuous = c( .= "Median [MIN - MAX]",
+                                   .= "Mean (SD)",
                                    .= "Q1 - Q3"))
 
 t2 <- table1(~ sex_male0_female1 +
@@ -61,6 +61,6 @@ t2 <- table1(~ sex_male0_female1 +
                survived_yes1_no0,
              data = df,
              topclass = "Rtable1-shade",
-             render.continous = c( .= "Mean [MIN - MAX]",
-                                   .= "Median (SD%)",
+             render.continuous = c( .= "Median [MIN - MAX]",
+                                   .= "Mean (SD)",
                                    .= "Q1 - Q3"))

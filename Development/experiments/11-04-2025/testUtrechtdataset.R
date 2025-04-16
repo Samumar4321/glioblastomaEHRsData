@@ -53,8 +53,8 @@ labels <- list(
   groups=list("Therapy", ""))
 
 t1 <- table1(strata, labels, groupspan = c(4,1), topclass = "Rtable1-shade", render.continuous = c(.= "Median [Min, Max]",
-                                                                                             .= "Mean (SD)",
-                                                                                             .= "Q1 - Q3"))
+                                                                                                   .= "Mean (SD)",
+                                                                                                   .= "Q1 - Q3"))
 labels <- list(
   variables = list(age_years = render.varlabel(testdataset$age_years),
                post_surgery_therapy_none0_monotherapy1_RT.TMZ2 = render.varlabel(testdataset$post_surgery_therapy_none0_monotherapy1_RT.TMZ2),
