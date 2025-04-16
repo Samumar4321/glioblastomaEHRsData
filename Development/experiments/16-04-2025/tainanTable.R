@@ -74,7 +74,8 @@ t2 <- table1(~ sex_male0_female1 +
                TMZ_based_chemo_yes1_no0 +
                radiation_dose_Gy +
                radiation_volume_mL +
-               year_of_diagnosis_05.10.0._10.16.1. |
+               year_of_diagnosis_05.10.0._10.16.1.
+             |
                survived_yes1_no0,
              data = df,
              topclass = "Rtable1-shade",
@@ -93,7 +94,8 @@ t3 <- table1(~ age_years +
                TMZ_based_chemo_yes1_no0 +
                radiation_dose_Gy +
                radiation_volume_mL +
-               year_of_diagnosis_05.10.0._10.16.1. |
+               year_of_diagnosis_05.10.0._10.16.1.
+             |
                sex_male0_female1,
              data = df,
              topclass = "Rtable1-shade",
