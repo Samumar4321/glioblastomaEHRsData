@@ -52,6 +52,41 @@ labels <- list(
                  SVZ_status_nocontact0_contact1 = render.varlabel(testdataset$SVZ_status_nocontact0_contact1)),
   groups=list("Therapy", ""))
 
-table1(strata, labels, groupspan = c(4,1), topclass = "Rtable1-shade", render.continuous = c(.= "Median [Min, Max]",
+t1 <- table1(strata, labels, groupspan = c(4,1), topclass = "Rtable1-shade", render.continuous = c(.= "Median [Min, Max]",
                                                                                              .= "Mean (SD)",
                                                                                              .= "Q1 - Q3"))
+labels <- list(
+  variables = list(age_years = render.varlabel(testdataset$age_years),
+               post_surgery_therapy_none0_monotherapy1_RT.TMZ2 = render.varlabel(testdataset$post_surgery_therapy_none0_monotherapy1_RT.TMZ2),
+               survival_months = render.varlabel(testdataset$survival_months),
+               KPS_less70.0._more70.1. = render.varlabel(testdataset$KPS_less70.0._more70.1.),
+               surgery_biopsy0_resection1 = render.varlabel(testdataset$surgery_biopsy0_resection1),
+               survived_yes1_no0=render.varlabel(testdataset$survived_yes1_no0),
+               SVZ_status_nocontact0_contact1 = render.varlabel(testdataset$SVZ_status_nocontact0_contact1)),
+  groups = list("Total"))
+
+t2 <- table1(~ age_years +
+               post_surgery_therapy_none0_monotherapy1_RT.TMZ2 +
+               survival_months +
+               KPS_less70.0._more70.1. +
+               surgery_biopsy0_resection1 +
+               survived_yes1_no0 +
+               SVZ_status_nocontact0_contact1,
+             data = testdataset,
+             topclass = "Rtable1-shade",
+             render.continuous = c(.= "Median [Min, Max]",
+                                   .= "Mean (SD)",
+                                   .= "Q1 - Q3"))
+
+t3 <- table1(~ age_years +
+               post_surgery_therapy_none0_monotherapy1_RT.TMZ2 +
+               survival_months +
+               KPS_less70.0._more70.1. +
+               surgery_biopsy0_resection1 +
+               SVZ_status_nocontact0_contact1 |
+               survived_yes1_no0,
+             data = testdataset,
+             topclass = "Rtable1-shade",
+             render.continuous = c(.= "Median [Min, Max]",
+                                   .= "Mean (SD)",
+                                   .= "Q1 - Q3"))
