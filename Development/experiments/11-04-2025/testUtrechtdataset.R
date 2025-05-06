@@ -14,7 +14,7 @@ testdataset$post_surgery_therapy_none0_monotherapy1_RT.TMZ2 <-
 testdataset$surgery_biopsy0_resection1 <-
   factor(testdataset$surgery_biopsy0_resection1,
          levels = c(0, 1),
-         labels = c("Biopsy", "Reselection"))
+         labels = c("Biopsy", "Resection"))
 testdataset$survived_yes1_no0 <-
   factor(testdataset$survived_yes1_no0,
          levels = c(0, 1),
