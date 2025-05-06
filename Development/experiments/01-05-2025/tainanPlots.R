@@ -45,6 +45,51 @@ label(df$TMZ_based_chemo_yes1_no0) <- "TMZ chemotherapy"
 label(df$tumorProgression_no0_yes1) <- "Tumor progression"
 label(df$year_of_diagnosis_05.10.0._10.16.1.) <- "Year of diagnosis"
 
+#Istogramma per Age
+ggplot(data = df, aes(x = age_years)) +
+  geom_histogram(binwidth = 1) +
+  scale_x_continuous(breaks = scales::breaks_width(10)) +
+  scale_y_continuous(breaks = scales::breaks_width(1)) +
+  theme(legend.position = "none") +
+  xlab("Age in years") +
+  ylab("Count")
+
+#Istogramma per OS
+ggplot(data = df, aes(x = OS_months)) +
+  geom_histogram(binwidth = 0.75) +
+  scale_x_continuous(breaks = scales::breaks_width(10)) +
+  scale_y_continuous(breaks = scales::breaks_width(1)) +
+  theme(legend.position = "none") +
+  xlab("Overall Survival in months") +
+  ylab("Count")
+
+#Istogramma per PFS
+ggplot(data = df, aes(x = PFS_months)) +
+  geom_freqpoly(binwidth = 0.5) +
+  scale_x_continuous(breaks = scales::breaks_width(10)) +
+  scale_y_continuous(breaks = scales::breaks_width(1)) +
+  theme(legend.position = "none") +
+  xlab("Progress Free Survival in months") +
+  ylab("Count")
+
+#Istogramma per RadiationDose
+ggplot(data = df, aes(x = radiation_dose_Gy)) +
+  geom_freqpoly(binwidth = 0.5) +
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  scale_y_continuous(breaks = scales::breaks_width(5)) +
+  theme(legend.position = "none") +
+  xlab("Radiation Dose in Gy") +
+  ylab("Count")
+
+#Istogramma per RadiationVolume
+ggplot(data = df, aes(x = radiation_volume_mL)) +
+  geom_freqpoly(binwidth = 15) +
+  scale_x_continuous(breaks = scales::breaks_width(100)) +
+  scale_y_continuous(breaks = scales::breaks_width(1)) +
+  theme(legend.position = "none") +
+  xlab("Radiation Volume in mL") +
+  ylab("Count")
+
 #Bar plot per Chemo
 ggplot(data = df, aes(x = chemo_yes1_no0,
                       fill = chemo_yes1_no0)) +
