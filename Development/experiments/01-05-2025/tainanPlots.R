@@ -46,116 +46,166 @@ label(df$tumorProgression_no0_yes1) <- "Tumor progression"
 label(df$year_of_diagnosis_05.10.0._10.16.1.) <- "Year of diagnosis"
 
 #Istogramma per Age
-ggplot(data = df, aes(x = age_years)) +
+Age_1D_Isto <-
+  ggplot(data = df, aes(x = age_years)) +
   geom_histogram(binwidth = 1) +
   scale_x_continuous(breaks = scales::breaks_width(10)) +
   scale_y_continuous(breaks = scales::breaks_width(1)) +
-  theme(legend.position = "none") +
-  xlab("Age in years") +
-  ylab("Count")
+  labs(x = "Age in years",
+       title = "Age")
 
 #Istogramma per OS
-ggplot(data = df, aes(x = OS_months)) +
+OS_1D_Isto <-
+  ggplot(data = df, aes(x = OS_months)) +
   geom_histogram(binwidth = 0.75) +
   scale_x_continuous(breaks = scales::breaks_width(10)) +
   scale_y_continuous(breaks = scales::breaks_width(1)) +
-  theme(legend.position = "none") +
-  xlab("Overall Survival in months") +
-  ylab("Count")
+  labs(x = "OS in months",
+       title = "Overall Survival")
 
 #Istogramma per PFS
-ggplot(data = df, aes(x = PFS_months)) +
-  geom_freqpoly(binwidth = 0.5) +
+PFS_1D_Isto <-
+  ggplot(data = df, aes(x = PFS_months)) +
+  geom_histogram(binwidth = 1) +
   scale_x_continuous(breaks = scales::breaks_width(10)) +
   scale_y_continuous(breaks = scales::breaks_width(1)) +
-  theme(legend.position = "none") +
-  xlab("Progress Free Survival in months") +
-  ylab("Count")
+  labs(x = "PFS in months",
+       title = "Progress Free Survival")
 
 #Istogramma per RadiationDose
-ggplot(data = df, aes(x = radiation_dose_Gy)) +
-  geom_freqpoly(binwidth = 0.5) +
+RD_1D_Isto <-
+  ggplot(data = df, aes(x = radiation_dose_Gy)) +
+  geom_histogram(binwidth = 0.5) +
   scale_x_continuous(breaks = scales::breaks_width(1)) +
   scale_y_continuous(breaks = scales::breaks_width(5)) +
-  theme(legend.position = "none") +
-  xlab("Radiation Dose in Gy") +
-  ylab("Count")
+  labs(x = "Radiation Dose in Gy",
+       title = "Radiation Dose")
 
 #Istogramma per RadiationVolume
-ggplot(data = df, aes(x = radiation_volume_mL)) +
-  geom_freqpoly(binwidth = 15) +
+RV_1D_Isto <-
+  ggplot(data = df, aes(x = radiation_volume_mL)) +
+  geom_histogram(binwidth = 15) +
   scale_x_continuous(breaks = scales::breaks_width(100)) +
   scale_y_continuous(breaks = scales::breaks_width(1)) +
-  theme(legend.position = "none") +
-  xlab("Radiation Volume in mL") +
-  ylab("Count")
+  labs(x = "Radiation Volume in mL",
+       title = "Radiation Volume")
 
 #Bar plot per Chemo
-ggplot(data = df, aes(x = chemo_yes1_no0,
-                      fill = chemo_yes1_no0)) +
+Chemo_1D_Bar <-
+  ggplot(data = df, aes(x = chemo_yes1_no0,
+                        fill = chemo_yes1_no0)) +
   geom_bar() +
   scale_y_continuous(breaks = scales::breaks_width(width = 10)) +
   scale_fill_brewer(palette = "Accent", na.value = "red") +
   theme(legend.position = "none") +
-  xlab("Chemotherapy") +
-  ylab("Count")
+  labs(x = "Chemotherapy",
+       title = "Chemotherapy")
 
 #Bar plot per Sex
-ggplot(data = df, aes(x = sex_male0_female1,
-                      fill = sex_male0_female1)) +
+Sex_1D_Bar <-
+  ggplot(data = df, aes(x = sex_male0_female1,
+                        fill = sex_male0_female1)) +
   geom_bar() +
   scale_y_continuous(breaks = scales::breaks_width(width = 10)) +
   scale_fill_brewer(palette = "Accent", na.value = "red") +
   theme(legend.position = "none") +
-  xlab("Sex") +
-  ylab("Count")
+  labs(x = "Sex",
+       title = "Sex")
 
 #Bar plot per Surgery
-ggplot(data = df, aes(x = surgery_yes1_biopsy0,
-                      fill = surgery_yes1_biopsy0)) +
+Surgery_1D_Bar <-
+  ggplot(data = df, aes(x = surgery_yes1_biopsy0,
+                        fill = surgery_yes1_biopsy0)) +
   geom_bar() +
   scale_y_continuous(breaks = scales::breaks_width(width = 10)) +
   scale_fill_brewer(palette = "Accent", na.value = "red") +
   theme(legend.position = "none") +
-  xlab("Surgery") +
-  ylab("Count")
+  labs(x = "Surgery",
+       title = "Surgery")
 
 #Bar plot per Survived
-ggplot(data = df, aes(x = survived_yes1_no0,
-                      fill = survived_yes1_no0)) +
+Survived_1D_Bar <-
+  ggplot(data = df, aes(x = survived_yes1_no0,
+                        fill = survived_yes1_no0)) +
   geom_bar() +
   scale_y_continuous(breaks = scales::breaks_width(width = 10)) +
   scale_fill_brewer(palette = "Accent", na.value = "red") +
   theme(legend.position = "none") +
-  xlab("Patient status") +
-  ylab("Count")
+  labs(x = "Patient status",
+       title = "Survived")
 
 #Bar plot per TMZ
-ggplot(data = df, aes(x = TMZ_based_chemo_yes1_no0,
-                      fill = TMZ_based_chemo_yes1_no0)) +
+TMZ_1D_Bar <-
+  ggplot(data = df, aes(x = TMZ_based_chemo_yes1_no0,
+                        fill = TMZ_based_chemo_yes1_no0)) +
   geom_bar() +
   scale_y_continuous(breaks = scales::breaks_width(width = 10)) +
   scale_fill_brewer(palette = "Accent", na.value = "red") +
   theme(legend.position = "none") +
-  xlab("TMZ based chemotherapy") +
-  ylab("Count")
+  labs(x = "TMZ",
+       title = "TMZ based chemotherapy")
 
 #Bar plot per TumorProgress
-ggplot(data = df, aes(x = tumorProgression_no0_yes1,
-                      fill = tumorProgression_no0_yes1)) +
+Progress_1D_Bar <-
+  ggplot(data = df, aes(x = tumorProgression_no0_yes1,
+                        fill = tumorProgression_no0_yes1)) +
   geom_bar() +
   scale_y_continuous(breaks = scales::breaks_width(width = 10)) +
   scale_fill_brewer(palette = "Accent", na.value = "red") +
   theme(legend.position = "none") +
-  xlab("Tumor progression") +
-  ylab("Count")
+  labs(x = "Progresss",
+       title = "Tumor progression")
 
 #Bar plot per YearOfDiagnosis
-ggplot(data = df, aes(x = year_of_diagnosis_05.10.0._10.16.1.,
-                      fill = year_of_diagnosis_05.10.0._10.16.1.)) +
+Year_1D_Bar <-
+  ggplot(data = df, aes(x = year_of_diagnosis_05.10.0._10.16.1.,
+                        fill = year_of_diagnosis_05.10.0._10.16.1.)) +
   geom_bar() +
   scale_y_continuous(breaks = scales::breaks_width(width = 10)) +
   scale_fill_brewer(palette = "Accent", na.value = "red") +
   theme(legend.position = "none") +
-  xlab("Year of first diagnosis") +
-  ylab("Count")
+  labs(x = "Year",
+       title = "Year of first diagnosis")
+
+cat('
+---
+title: "Report"
+author: "XXX"
+date: "today"
+output: pdf_document
+---
+
+```{r show-flextable, echo=FALSE, result="asis"}
+
+warn_lvl <- getOption("warn")
+options(warn = -1)
+
+Age_1D_Isto
+
+OS_1D_Isto
+
+PFS_1D_Isto
+
+RD_1D_Isto
+
+RV_1D_Isto
+
+Sex_1D_Bar
+
+Survived_1D_Bar
+
+Surgery_1D_Bar
+
+Chemo_1D_Bar
+
+TMZ_1D_Bar
+
+Progress_1D_Bar
+
+Year_1D_Bar
+
+options(warn = warn_lvl)
+```
+', file = "plots1D.Rmd")
+rmarkdown::render("plots1D.Rmd", output_file = "Tainan_Plots_1D.pdf")
+file.remove("plots1D.Rmd")
