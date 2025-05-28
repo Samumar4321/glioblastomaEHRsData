@@ -5,20 +5,20 @@ p_load("dlookr", "Hmisc", "summarytools", "explore")
 Hmisc::describe(utrecht2019dataset)
 
 #dlookr
-dc <- diagnose_category(df)
-dn <- diagnose_numeric(df)
+diagnose_category(df)
+diagnose_numeric(df)
 
-desc <- dlookr::describe(df)
+dlookr::describe(df)
 
-sumNum <- summary(dlookr::univar_numeric(df)) #schifo
+summary(dlookr::univar_numeric(df))
 
 
 #base R
 summary(utrecht2019dataset)
 
-#summarytools very good
-summarytools::descr(utrecht2019dataset)
-summarytools::freq(utrecht2019dataset)[[1]][1]
+#summarytools
+summarytools::descr(df)[[1]]
+summarytools::freq(df)[[1]][1]
 
 #explore
 explore(df)
