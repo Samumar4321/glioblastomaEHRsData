@@ -1,5 +1,5 @@
 source("~/GitHub/glioblastomaEHRsData/Development/bin/loadTestDataset.R")
-p_load("table1")
+p_load("table1", "flextable")
 
 descriptiveTableMunich2019dataset <- function(savePath = NULL) {
   r <- table1(~ sex_male0_female1 +
@@ -15,6 +15,35 @@ descriptiveTableMunich2019dataset <- function(savePath = NULL) {
               render.continuous = c( .= "Median [MIN - MAX]",
                                      .= "Mean (SD)",
                                      .= "Q1 - Q3"))
+  ft1 <- t1flex(r)
+
+
+  if(is.null(savePath) || savePath == "") {
+    save_as_image(ft1, "defaultname.svg")
+    print("primo")
+  }
+  else {
+    has_file_name <- grepl("\\.", tolower(basename(savePath)))
+    if(!has_file_name) {
+      if(!dir.exists(savePath))
+        dir.create(savePath)
+      save_as_image(ft1, paste0(savePath, "/defaultname2.svg"))
+      print("secondo")
+    }
+    else {
+      if(!dir.exists(dirname(savePath)))
+        dir.create(dirname(savePath))
+      is_valid_format <- grepl("\\.(svg)$", tolower(basename(savePath)))
+      if(!is_valid_format){
+        stop("Valid format error: file exension must .svg")
+      }
+      else {
+        save_as_image(ft1, savePath)
+        print("terzo")
+      }
+    }
+  }
+
   return(r)
 }
 
