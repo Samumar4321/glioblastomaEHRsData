@@ -11,39 +11,12 @@ descriptiveTableMunich2019dataset <- function(savePath = NULL) {
                 cHsp70_low0_high1 |
                 survived_yes1_no0,
               data = munich2019dataset,
+              caption = "Munich2019dataset",
               topclass = "Rtable1-shade",
               render.continuous = c( .= "Median [MIN - MAX]",
                                      .= "Mean (SD)",
                                      .= "Q1 - Q3"))
-  ft1 <- t1flex(r)
-
-
-  if(is.null(savePath) || savePath == "") {
-    save_as_image(ft1, "defaultname.svg")
-    print("primo")
-  }
-  else {
-    has_file_name <- grepl("\\.", tolower(basename(savePath)))
-    if(!has_file_name) {
-      if(!dir.exists(savePath))
-        dir.create(savePath)
-      save_as_image(ft1, paste0(savePath, "/defaultname2.svg"))
-      print("secondo")
-    }
-    else {
-      if(!dir.exists(dirname(savePath)))
-        dir.create(dirname(savePath))
-      is_valid_format <- grepl("\\.(svg)$", tolower(basename(savePath)))
-      if(!is_valid_format){
-        stop("Valid format error: file exension must .svg")
-      }
-      else {
-        save_as_image(ft1, savePath)
-        print("terzo")
-      }
-    }
-  }
-
+  save(r, savePath = savePath)
   return(r)
 }
 
@@ -66,6 +39,7 @@ descriptiveTableTainan2020dataset <- function(savePath = NULL) {
               render.continuous = c(.= "Median [MIN - MAX]",
                                     .= "Mean (SD)",
                                     .= "Q1 - Q3"))
+  save(r, savePath = savePath)
   return(r)
 }
 
@@ -82,5 +56,72 @@ descriptiveTableUtrecht2019dataset <- function(savePath = NULL){
               render.continuous = c(.= "Median [Min, Max]",
                                     .= "Mean (SD)",
                                     .= "Q1 - Q3"))
+  save(r, savePath = savePath)
   return(r)
 }
+
+
+save <- function(obj, savePath = NULL) {
+  caller <- sub("\\(.*\\)", "", deparse(sys.call(sys.parent())))
+  dataset <- if (grepl("descriptiveTable", caller)) {
+    sub(".*descriptiveTable", "", caller)
+  } else {
+    "unknown"
+  }
+  default_name <- paste0(paste("table",
+                               dataset,
+                               Sys.Date(),
+                               format(Sys.time(), "%Hh%Mm%Ss"),
+                               sep = "_"),
+                         ".svg")
+
+  if(is.null(savePath) || savePath == "") {
+    save_as_image(t1flex(obj), default_name)
+    print("primo")
+    return(0)
+  }
+  else {
+    has_filename <- grepl("\\.", basename(savePath))
+    if(has_filename){
+      #CONTROLLA CHE LA DIR ESISTA
+      if(!dir.exists(dirname(savePath))){
+        print("err1")
+        return(-1)
+      }
+      #CONTROLLA CHE ABBIA GIUSTA ESTENSIONE
+      if(!grepl("\\.(svg|pdf|png)$", basename(savePath))) {
+        print("Invalid format")
+        return(-1)
+      }
+      #SALVA CON FILENAME UTENTE
+      if(grepl("\\.(pdf)$", basename(savePath))) {
+        cat('
+---
+output: pdf_document
+---
+
+```{r show-flextable, echo=FALSE, result="asis"}
+obj
+```
+', file = "table1.Rmd")
+        rmarkdown::render("table1.Rmd", output_file = savePath)
+        file.remove("table1.Rmd")
+        return(0)
+      }
+      save_as_image(t1flex(obj), savePath)
+      print("secondo")
+      return(0)
+    }
+    else{
+      #CONTROLLA CHE LA DIR ESISTA
+      if(!dir.exists(savePath)) {
+        print("err2")
+        return(-1)
+      }
+      #SALVA NELLA DIR CON DEFAULTNAME
+      save_as_image(t1flex(obj), paste0(savePath, "/", default_name))
+      print("terzo")
+      return(0)
+    }
+  }
+ }
