@@ -1,9 +1,33 @@
 library("pacman")
 p_load("tidyverse", "table1", "summarytools", "dlookr")
 
-munich2019dataset <- read.csv("../../Development/datasets/Munich2019dataset.csv")
-tainan2020dataset <- read.csv("../../Development/datasets/Tainan2020dataset.csv")
-utrecht2019dataset <- read.csv("../../Development/datasets/Utrecht2019dataset.csv")
+munich2019dataset <- read.csv("../../Development/datasets/Munich2019dataset.csv",
+                              colClasses = c(
+                                "cHsp70_low0_high1" = "character",
+                                "sex_male0_female1" = "character",
+                                "survived_yes1_no0" = "character",
+                                "tumor_progression_yes1_no0" = "character",
+                                "MGMTmethylation_methylated1_unmethylated0" = "character",
+                                "tumor_progression_yes1_no0" = "character"
+                              ))
+tainan2020dataset <- read.csv("../../Development/datasets/Tainan2020dataset.csv",
+                              colClasses = c(
+                                "chemo_yes1_no0" = "character",
+                                "sex_male0_female1" = "character",
+                                "surgery_yes1_biopsy0" = "character",
+                                "survived_yes1_no0" = "character",
+                                "TMZ_based_chemo_yes1_no0" = "character",
+                                "tumorProgression_no0_yes1" = "character",
+                                "year_of_diagnosis_05.10.0._10.16.1." = "character"
+                              ))
+utrecht2019dataset <- read.csv("../../Development/datasets/Utrecht2019dataset.csv",
+                               colClasses = c(
+                                 "KPS_less70.0._more70.1." = "character",
+                                 "post_surgery_therapy_none0_monotherapy1_RT.TMZ2" = "character",
+                                 "surgery_biopsy0_resection1" = "character",
+                                 "survived_yes1_no0" = "character",
+                                 "SVZ_status_nocontact0_contact1" = "character"
+                               ))
 
 #View(munich2019dataset)
 #View(tainan2020dataset)
