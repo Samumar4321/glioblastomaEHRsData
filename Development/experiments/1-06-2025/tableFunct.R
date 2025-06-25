@@ -16,7 +16,9 @@ descriptiveTableMunich2019dataset <- function(savePath = NULL) {
               render.continuous = c( .= "Median [MIN - MAX]",
                                      .= "Mean (SD)",
                                      .= "Q1 - Q3"))
-  save(r, savePath = savePath)
+  status <- saveTable(r,
+                      names = c("Munich2019datase"),
+                      savePath = savePath)
   return(r)
 }
 
@@ -39,7 +41,9 @@ descriptiveTableTainan2020dataset <- function(savePath = NULL) {
               render.continuous = c(.= "Median [MIN - MAX]",
                                     .= "Mean (SD)",
                                     .= "Q1 - Q3"))
-  save(r, savePath = savePath)
+  status <- saveTable(r,
+                      names = c("Tainan2020dataset"),
+                      savePath = savePath)
   return(r)
 }
 
@@ -56,17 +60,17 @@ descriptiveTableUtrecht2019dataset <- function(savePath = NULL){
               render.continuous = c(.= "Median [Min, Max]",
                                     .= "Mean (SD)",
                                     .= "Q1 - Q3"))
-  save(r, savePath = savePath)
+  status <- saveTable(r,
+                      names = c("Utrecht2019dataset") ,
+                      savePath = savePath)
   return(r)
 }
 
 
-save <- function(obj, savePath = NULL) {
-  caller <- sub("\\(.*\\)", "", deparse(sys.call(sys.parent())))
-  dataset <- if (grepl("descriptiveTable", caller)) {
-    sub(".*descriptiveTable", "", caller)
-  } else {
-    "unknown"
+saveTable <- function(t1, names, savePath = NULL) {
+  dataset <- names[1]
+  if(is.na(dataset)) {
+    stop("Dataset not named")
   }
   default_name <- paste0(paste("table",
                                dataset,
@@ -76,8 +80,7 @@ save <- function(obj, savePath = NULL) {
                          ".svg")
 
   if(is.null(savePath) || savePath == "") {
-    save_as_image(t1flex(obj), default_name)
-    print("primo")
+    save_as_image(t1flex(t1), default_name)
     return(0)
   }
   else {
@@ -85,12 +88,12 @@ save <- function(obj, savePath = NULL) {
     if(has_filename){
       #CONTROLLA CHE LA DIR ESISTA
       if(!dir.exists(dirname(savePath))){
-        print("err1")
+        stop("Specified directory does not exists")
         return(-1)
       }
       #CONTROLLA CHE ABBIA GIUSTA ESTENSIONE
       if(!grepl("\\.(svg|pdf|png)$", basename(savePath))) {
-        print("Invalid format")
+        stop("File of invalid format, use .svg, .png or .pdf instead")
         return(-1)
       }
       #SALVA CON FILENAME UTENTE
@@ -101,26 +104,24 @@ output: pdf_document
 ---
 
 ```{r show-flextable, echo=FALSE, result="asis"}
-obj
+t1
 ```
 ', file = "table1.Rmd")
         rmarkdown::render("table1.Rmd", output_file = savePath)
         file.remove("table1.Rmd")
         return(0)
       }
-      save_as_image(t1flex(obj), savePath)
-      print("secondo")
+      save_as_image(t1flex(t1), savePath)
       return(0)
     }
     else{
       #CONTROLLA CHE LA DIR ESISTA
       if(!dir.exists(savePath)) {
-        print("err2")
+        stop("Specified directory does not exists")
         return(-1)
       }
       #SALVA NELLA DIR CON DEFAULTNAME
-      save_as_image(t1flex(obj), paste0(savePath, "/", default_name))
-      print("terzo")
+      save_as_image(t1flex(t1), paste0(savePath, "/", default_name))
       return(0)
     }
   }
