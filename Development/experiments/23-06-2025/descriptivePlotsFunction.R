@@ -12,18 +12,22 @@ plotMunich2019dataset <- function(name1, name2 = NA, savePath = NA) {
 
   if(is.na(name2)) {
     if(is.numeric(munich2019dataset[[name1]]) || is.integer(munich2019dataset[[name1]])) {
-      plot <- plot_histogram(munich2019dataset[[name1]])[[1]] + labs(x = name1)
+      plot <- plot_histogram(munich2019dataset[[name1]])[[1]] +
+        labs(x = name1)
     }
     else if(is.character(munich2019dataset[[name1]]) || is.factor(munich2019dataset[[name1]])){
-      plot <- plot_bar(munich2019dataset[[name1]])[[1]] + labs(x = name1)
+      plot <- plot_bar(munich2019dataset[[name1]])[[1]] +
+        labs(x = name1)
     }
   }
   else
-    plot <- plot_boxplot(munich2019dataset[, c(name1, name2)], by = name2)[[1]]
+    plot <- plot_boxplot(munich2019dataset[, c(name1, name2)], by = name2)[[1]] +
+      theme_minimal()
 
 savePlot(plot,
          names = c("Munich2019datset", name1, name2),
          savePath = savePath)
+return(plot)
 }
 
 plotTainan2020dataset <- function(name1, name2 = NA, savePath = NA) {
