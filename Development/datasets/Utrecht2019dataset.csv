@@ -1,4 +1,4 @@
-age_years,KPS_less70(0)_more70(1),post_surgery_therapy_none0_monotherapy1_RT&TMZ2,surgery_biopsy0_resection1,survival_months,survived_yes1_no0,SVZ_status_nocontact0_contact1
+age_years,KPS_less70-0_more70-1,post_surgery_therapy_none0_monotherapy1_RTandTMZ2,surgery_biopsy0_resection1,OS_months,survived_yes1_no0,SVZ_status_nocontact0_contact1
 82,1,1,0,0.20,0,0
 67,1,2,0,0.40,1,0
 70,1,2,0,14.43,0,0
