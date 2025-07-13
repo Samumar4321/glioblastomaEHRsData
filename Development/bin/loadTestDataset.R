@@ -19,7 +19,7 @@ tainan2020dataset <- read.csv("../../Development/datasets/Tainan2020dataset.csv"
                                 "survived_yes1_no0" = "character",
                                 "TMZ_based_chemo_yes1_no0" = "character",
                                 "tumorProgression_no0_yes1" = "character",
-                                "year_of_diagnosis_05.10.0._10.16.1." = "character"
+                                "year_of_diagnosis_05to10_0_10to16_1" = "character"
                               ))
 utrecht2019dataset <- read.csv("../../Development/datasets/Utrecht2019dataset.csv",
                                colClasses = c(
@@ -89,8 +89,8 @@ tainan2020dataset$tumorProgression_no0_yes1 <-
   factor(tainan2020dataset$tumorProgression_no0_yes1,
          levels = c(0, 1),
          labels = c("No", "Yes"))
-tainan2020dataset$year_of_diagnosis_05.10.0._10.16.1. <-
-  factor(tainan2020dataset$year_of_diagnosis_05.10.0._10.16.1.,
+tainan2020dataset$year_of_diagnosis_05to10_0_10to16_1 <-
+  factor(tainan2020dataset$year_of_diagnosis_05to10_0_10to16_1,
          levels = c(0, 1),
          labels = c("2005-2010", "2010-2016"))
 
@@ -105,7 +105,7 @@ label(tainan2020dataset$surgery_yes1_biopsy0) <- "Surgery"
 label(tainan2020dataset$survived_yes1_no0) <- "Patient status"
 label(tainan2020dataset$TMZ_based_chemo_yes1_no0) <- "TMZ chemotherapy"
 label(tainan2020dataset$tumorProgression_no0_yes1) <- "Tumor progression"
-label(tainan2020dataset$year_of_diagnosis_05.10.0._10.16.1.) <- "Year of diagnosis"
+label(tainan2020dataset$year_of_diagnosis_05to10_0_10to16_1) <- "Year of diagnosis"
 # UTRECHT REFACTPR -------------
 utrecht2019dataset$KPS_less70.0_more70.1 <-
   factor(utrecht2019dataset$KPS_less70.0_more70.1,
@@ -199,7 +199,7 @@ descriptiveTableTainan2020dataset <- function(savePath = NULL) {
                 TMZ_based_chemo_yes1_no0 +
                 radiation_dose_Gy +
                 radiation_volume_mL +
-                year_of_diagnosis_05.10.0._10.16.1.
+                year_of_diagnosis_05to10_0_10to16_1
               |
                 survived_yes1_no0,
               data = tainan2020dataset,
