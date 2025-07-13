@@ -1,4 +1,4 @@
-age_years,chemo_yes1_no0,OS_months,PFS_months,radiation_dose_Gy,radiation_volume_mL,sex_male0_female1,surgery_yes1_biopsy0,survived_yes1_no0,TMZ_based_chemo_yes1_no0,tumorProgression_no0_yes1,year_of_diagnosis_05-10(0)_10-16(1)
+age_years,chemo_yes1_no0,OS_months,PFS_months,radiation_dose_Gy,radiation_volume_mL,sex_male0_female1,surgery_yes1_biopsy0,survived_yes1_no0,TMZ_based_chemo_yes1_no0,tumorProgression_no0_yes1,year_of_diagnosis_05to10_0_10to16_1
 63,1,16.32,15.12,60.00,731,0,1,0,1,1,1
 64,1,106.08,61.38,66.00,,0,0,0,0,1,0
 62,1,17.52,7.69,60.00,215,0,1,0,1,1,1
