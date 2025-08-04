@@ -1,27 +1,37 @@
-#' EHRs data of patients affected by Glioblastoma (GBM) from Tainan and Taiwan medical centers and branches.
+#' EHR data of patients affected by Glioblastoma (GBM) from Tainan and Taiwan medical centers and branches.
 #'
-#' Data form patients affected by GBM in the Tainan and Taiwan medical centers and affiliated branches from 2005 to 2016.
+#' Data form patients affected by GBM in the Tainan and Taiwan medical centers and affiliated branches between 2005 and 2016.\cr
+#' It contains data from 84 patients, ranging from demographical information (age and sex) and
+#' treatment characteristics (chemotherapy, radiation volume and dose) to
+#' surgical details and outcomes (Overall and Progress Free Survival).\cr
+#' Some data may be missing due to the nature of clinical records.
 #'
 #' @docType data
-#'
+#' @name tainan2020dataset
 #' @usage data(tainan2020dataset)
 #'
-#' @format An object of class \code{"data.frame"}
+#' @format A data frame with 84 rows and 12 variables:
 #' \describe{
-#'  \item{age_years}{Patient's age}
-#'  \item{chemo_yes1_no0}{A (character), either "1" or "0", identifing if the patient had chemo or not}
-#'  \item{OS_months}{Overall Survival expressed in months}
-#'  \item{PFS_monhts}{Progress Free Survival expressed in months}
-#'  \item{radiation_dose_Gy}{Radiation dose used in chemotherapy expressed in Gy}
-#'  \item{radiation_volume_mL}{Radiation volume used in chemotherapy expressed in mL}
-#'  \item{sex_male0_female1}{(Character), either "1" or "0", identifieng the patient's gender}
-#'  \item{surgery_yes_biopsy0}{(Character), either "1" or "0", identifieng fi the patient had a resection or only a biopsy}
-#'  \item{survived_yes_no0}{(Character), either "1" or "0", identifieng if the patient has survived untile their most recent check-up}
-#'  \item{TMZ_based_chemo_yes1_no0}{(Character), either "1" or "0", identifieng the chemotherapy regimen}
-#'  \item{tumorProgression_no0_yes1}{(Character), either "1" or "0", identifing if the tumor progressed after the initial treatment}
-#'  \item{year_of_diagnosis_05to10_0_10to16_1}{(Character), either "1" or "0", identifieng the year of diagnosis range from 2005 to 2010 or from 2010 to 2016}
+#'  \item{age_years}{Numeric. Patient's age.}
+#'  \item{chemo_yes1_no0}{Character. "0" (no chemotherapy) or "1" (chemotherapy).}
+#'  \item{OS_months}{Numeric. Overall Survival expressed in months.}
+#'  \item{PFS_monhts}{Numeric. Progress Free Survival expressed in months.}
+#'  \item{radiation_dose_Gy}{Numeric. Radiation dose used in chemotherapy expressed in Gy.}
+#'  \item{radiation_volume_mL}{Numeric. Radiation volume used in chemotherapy expressed in mL.}
+#'  \item{sex_male0_female1}{Character. "0" (female) or "1" (male).}
+#'  \item{surgery_yes1_biopsy0}{Character. "0" (biopsy) or "1" (resection).}
+#'  \item{survived_yes1_no0}{Character. "0" (deceased) or "1" (survived) at their most recent check-up.}
+#'  \item{TMZ_based_chemo_yes1_no0}{Character. "0" (non TMZ based chemotherapy) or "1" (TMZ based chemotherapy).}
+#'  \item{tumorProgression_no0_yes1}{Character. "0" (no tumor progression) or "1" (tumor progression) after the initial treatment.}
+#'  \item{year_of_diagnosis_05to10_0_10to16_1}{Character. "0" (diagnosis between 2005-2010) or "1" (diagnosis between 2010-2016), year of diagnosis.}
 #' }
-#' @references This dataset was downloaded form LINK and refactored for the usage in this package
+#'@references
+#' Li-Tsun Shieh, How-Ran Guo, Chung-Han Ho et al. (2020).
+#' Survival of glioblastoma treated with a moderately escalated radiation dose—Results of a retrospective analysis.
+#' PMID: 32413077.
+#' 15(5): e0233188.
+#' https://doi.org/10.1371/journal.pone.0233188
+#'
 #' @keywords datasets
 #' @examples
 #'

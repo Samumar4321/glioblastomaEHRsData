@@ -33,6 +33,7 @@ Municht2019datasetDescriptiveStatistics <- function(show = "all"){
                    "continuous" = summarytools::descr(munich2019dataset),
                    "categorical" = summarytools::freq(munich2019dataset),
                    "all" = list(summarytools::descr(munich2019dataset),
-                                summarytools::freq(munich2019dataset)))
+                                summarytools::freq(munich2019dataset)),
+                   stop("Invalid 'show' value, use one of 'all', 'categorical' or 'continuous'."))
   return(result)
 }
