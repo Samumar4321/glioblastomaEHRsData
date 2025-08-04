@@ -8,9 +8,8 @@ munich2019dataset <- read.csv("../../Development/datasets/Munich2019dataset.csv"
                                 "sex_male0_female1" = "character",
                                 "survived_yes1_no0" = "character",
                                 "tumor_progression_yes1_no0" = "character",
-                                "MGMTmethylation_methylated1_unmethylated0" = "character",
-                                "tumor_progression_yes1_no0" = "character"
-                              ))
+                                "MGMTmethylation_methylated1_unmethylated0" = "character"
+                                ))
 tainan2020dataset <- read.csv("../../Development/datasets/Tainan2020dataset.csv",
                               colClasses = c(
                                 "chemo_yes1_no0" = "character",
