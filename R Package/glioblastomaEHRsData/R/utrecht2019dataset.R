@@ -1,0 +1,36 @@
+#' EHR data of patients affected by Glioblastoma (GBM) treated at the University Medical Centre of Utrecht.
+#'
+#' Electronic Health Records (EHR) of patients affected by GBM at the University Medical Centre of Utrecht (UMCU) between 2005-2013.\cr
+#' This dataset contains clinical information from 647 patients collected to study prognostic factor
+#' influencing overall survival in GBM patients, this study focuses on the involvment of the
+#' subventricolar zone (SVZ), a brain region that may play a role in tumor progression.\cr
+#' Some data may be missing due to the nature of clinical records.
+#'
+#' @docType data
+#' @name utrecht2019dataset
+#' @usage data(utrecht2019dataset)
+#'
+#' @format A data frame with 647 rows and 7 variables:
+#' \describe{
+#'  \item{age_years}{Numeric. Patient's age.}
+#'  \item{KPS_less70.0_more70.1}{Character. "0" (less than 70) or "1" (more than 70) KPS level.}
+#'  \item{OS_months}{Numeric. Overall Survival expressed in months.}
+#'  \item{post_surgery_therapy_none0_monotherapy1_RTandTMZ2}{Character. "0" (no), "1" (mono) or "2" (RT+TMZ) therapy.}
+#'  \item{surgery_biopsy0_resection1}{Character. "0" (biopsy) or "1" (resection).}
+#'  \item{survived_yes1_no0}{Character. "0" (deceased) or "1" (survived) at their most recent check-up.}
+#'  \item{SVZ_status_nocontact0_contact1}{Character. "0" (no contact) or "1" (contact) SVZ status.}
+#' }
+#' @references
+#' Berendsen S, van Bodegraven E, Seute T et al. (2019).
+#' Adverse prognosis of glioblastoma contacting the subventricular zone: Biological correlates.
+#' PMID: 31603915.
+#' 14(10): e0222717.
+#' https://doi.org/10.1371/journal.pone.0222717
+#'
+#' @keywords datasets
+#' @examples
+#'
+#' data(utrecht2019dataset)
+#' head(utrecht2019dataset)
+#'
+"utrecht2019dataset"
