@@ -8,12 +8,12 @@
 A data frame with 647 rows and 7 variables:
 \describe{
  \item{age_years}{Numeric. Patient's age.}
- \item{KPS_less70.0_more70.1}{Character. "0" (less than 70) or "1" (more than 70) KPS level.}
+ \item{KPS_less70.0_more70.1}{Factor. "<70" (0) or ">70" (1) KPS level.}
  \item{OS_months}{Numeric. Overall Survival expressed in months.}
- \item{post_surgery_therapy_none0_monotherapy1_RTandTMZ2}{Character. "0" (no), "1" (mono) or "2" (RT+TMZ) therapy.}
- \item{surgery_biopsy0_resection1}{Character. "0" (biopsy) or "1" (resection).}
- \item{survived_yes1_no0}{Character. "0" (deceased) or "1" (survived) at their most recent check-up.}
- \item{SVZ_status_nocontact0_contact1}{Character. "0" (no contact) or "1" (contact) SVZ status.}
+ \item{post_surgery_therapy_none0_monotherapy1_RTandTMZ2}{Factor. "None" (0), "Monotherapy" (1) or "RT+TMZ" (2) for therapy regime.}
+ \item{surgery_biopsy0_resection1}{Factor. "Biopsy" (0) or "Resection" (1) for surgery type.}
+ \item{survived_yes1_no0}{Factor. "Dead" (0) or "Alive" (1) at their most recent check-up.}
+ \item{SVZ_status_nocontact0_contact1}{Factor. "No" (0) or "Yes" (1) for SVZ contact.}
 }
 }
 \usage{

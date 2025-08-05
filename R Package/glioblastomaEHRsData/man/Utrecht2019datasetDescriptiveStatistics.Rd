@@ -7,20 +7,26 @@
 Utrecht2019datasetDescriptiveStatistics(show = "all")
 }
 \arguments{
-\item{show}{character string for the type of statistic to show
- \describe{
-   \item{"continuous"}{Summary statistics for continuous variables.}
-   \item{"categorical"}{Frequency tables for categorical variables.}
-   \item{"all"}{Returns both summary statistics and frequency tables.}
-}}
+\item{show}{character string for the type of statistic to show.
+ There are three options:
+
+ If 'continuous', summary statistic for continuous variables will be displayed.
+
+ If 'categorical', summary statistic for categorical variables will be displayed.
+
+ If 'all', both summary will be displayed.
+
+ If none of the above an error will be launched.}
 }
 \value{
 A list or an object depending on the value of \code{show}:
   \describe{
     \item{If \code{show = "continuous"}}{A data frame with descriptive statistics.}
     \item{If \code{show = "categorical"}}{A list of frequency tables.}
-    \item{If \code{show = "all"}}{A list containing both descriptive statistics and frequency tables.}
-  }
+    \item{If \code{show = "all"}}{A list of 2 items,
+    the first is a data frame for continuous variable,
+    the second is a list for categorical variables.}
+    }
 }
 \description{
 Provides descriptive statistics for the 'utrecht2019dataset'
