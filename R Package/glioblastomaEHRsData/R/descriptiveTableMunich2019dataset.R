@@ -1,11 +1,11 @@
 #' @title descriptiveTableMunich2019dataset
 #'
-#' @description Function to create, display and optionally export a table containing descriptive statistics for munich2019dataset.\cr
+#' @description Function to create, display and optionally export a table containing descriptive statistics for the munich2019dataset.\cr
 #' The table is createtd using the table1 package and is grouped by survival status.
 #'
-#' @param savePath character string specifying the path and filename for exporting the table.\cr
-#' If NULL (default), the table will not be exported.\cr
-#' Expected format: "filepath/filename.extension", extension can be svg, png, or pdf, the directory must exist beforehand.
+#' @param savePath character string specifying the path and filename for exporting the table.
+#'  If NULL (default), the table will not be exported.\cr
+#'  Expected format: "filepath/filename.extension", extension can be svg, png, or pdf, the directory must exist beforehand.
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
 #'
