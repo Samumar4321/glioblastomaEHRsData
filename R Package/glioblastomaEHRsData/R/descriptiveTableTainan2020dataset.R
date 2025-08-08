@@ -4,9 +4,17 @@
 #' The table is createtd using the table1 package and is grouped by survival status.
 #'
 #' @param savePath character string specifying the path and filename for exporting the table.
+#'
 #'  If NULL (default), the table will not be exported.
 #'
-#'  Expected format: "filepath/filename.extension", extension can be svg, png, or pdf, the directory must exist beforehand.
+#'  If "" (empty string), the table will be saved in the working directory using a default name.
+#'
+#'  Expected format: 'filepath/filename.extensions' where:
+#'  \itemize{
+#'    \item filepath is the directory path, absolute or relative and must already exist;
+#'    \item filename is the name of the file;
+#'    \item extension must be one of 'svg', 'png', or 'pdf'.
+#'  }
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
 #'
@@ -23,7 +31,7 @@ descriptiveTableTainan2020dataset <- function(savePath = NULL) {
                 OS_months +
                 PFS_months +
                 tumorProgression_no0_yes1 +
-                surgery_yes1_biopsy0 +
+                surgery_resection1_biopsy0 +
                 chemo_yes1_no0 +
                 TMZ_based_chemo_yes1_no0 +
                 radiation_dose_Gy +
