@@ -2,7 +2,7 @@
 % Please edit documentation in R/savePlot.R
 \name{savePlot}
 \alias{savePlot}
-\title{savePlot}
+\title{Save a plot}
 \usage{
 savePlot(plot, names, savePath = "")
 }
@@ -15,9 +15,9 @@ second the x variable of the plot, and third the y variable of the plot (only in
 \item{savePath}{(Optional)A character string specifying the path and filename for the exported plot.\cr
 The format must be: 'filepath/filename.extension' where:
 \itemize{
-  \item filepath is the directory (must already exist), default to the working directory;
-  \item filename is the name of the file, default to default_filename;
-  \item extension must be one of the supported 'ggsave' extensions, default is .png.
+\item filepath is the directory (must already exist), default to the working directory;
+\item filename is the name of the file, default to default_filename;
+\item extension must be one of the supported 'ggsave' extensions, default is .png.
 }}
 }
 \value{
@@ -27,5 +27,8 @@ A status number, 0 if the save was successfull, -1 if there were errors.
 Internal function to save a 1D or 2D ggplot2 plot specifying the filepath, filename and extension.
 Supported extensions are the ones supported by 'ggsave', default extension is .png.
 Default_filename is in this format: 'plot_Dataset_var1_var2_datetime.png'
+}
+\seealso{
+This internal functions is used by: \code{\link[=plotMunich2019dataset]{plotMunich2019dataset()}}, \code{\link[=plotTainan2020dataset]{plotTainan2020dataset()}} and \code{\link[=plotUtrecht2019dataset]{plotUtrecht2019dataset()}}
 }
 \keyword{internal}

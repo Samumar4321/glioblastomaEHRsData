@@ -1,3 +1,4 @@
+#' @md
 #' @title Plot variables from the Munich2019Dataset
 #'
 #' @description This function creates a plot of one or two variables from the 'munich2019dataset' dataframe.
@@ -16,7 +17,8 @@
 #'    \item extension must be one of the supported 'ggsave' extensions, default is .png.
 #' }
 #'
-#' @return A 'ggplot2' object representing the generated plot. If the specified variables are not found in the dataset, returns '-1'.
+#' @return A 'ggplot2' object representing the generated plot.
+#' If the specified variables are not found in the dataset, returns '-1'.
 #'
 #' @details
 #' The function supports the following plotting logic:
@@ -33,12 +35,14 @@
 #'     }
 #' }
 #'
-#' @seealso \code{\link{plot_histogram}}, \code{\link{plot_bar}}, \code{\link{plot_boxplot}}, \code{\link{savePlot}}
+#' @seealso [DataExplorer::plot_bar()], [DataExplorer::plot_histogram()], [DataExplorer::plot_boxplot], [savePlot()]
 #'
 #' @examples
 #' plotMunich2019dataset("age_years")
 #' plotMunich2019dataset("cHsp70_low0_high1", "sex_male0_female1")
 #' plotMunich2019dataset("age_years", "sex_male0_female1", savePath = "plots/age_sex_boxplot.png")
+#'
+#' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
 #'
 #' @export
 plotMunich2019dataset <- function(name1, name2 = NA, savePath = NULL) {

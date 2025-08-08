@@ -1,3 +1,4 @@
+#' @md
 #' @title Plot variables from the Tainan2020dataset
 #'
 #' @description This function creates a plot of one or two variables from the 'tainan2020dataset' dataframe.
@@ -33,12 +34,14 @@
 #'     }
 #' }
 #'
-#' @seealso \code{\link{plot_histogram}}, \code{\link{plot_bar}}, \code{\link{plot_boxplot}}, \code{\link{savePlot}}
+#' @seealso [DataExplorer::plot_bar()], [DataExplorer::plot_histogram()], [DataExplorer::plot_boxplot], [savePlot()]
 #'
 #' @examples
 #' plotTainan2020dataset("TMZ_based_chemo_yes1_no0")
 #' plotTainan2020dataset("PFS_months", "OS_months")
 #' plotTainan2020dataset("age_years", "chemo_yes1_no0", savePath = "plots/age_chemo_boxplot.png")
+#'
+#' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
 #'
 #' @export
 plotTainan2020dataset <- function(name1, name2 = NA, savePath = NA) {

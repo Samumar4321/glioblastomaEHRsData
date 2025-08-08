@@ -1,3 +1,4 @@
+#' @md
 #' @title Plot variables from the Utrecht2019dataset
 #'
 #' @description This function creates a plot of one or two variables from the 'utrecht2019dataset' dataframe.
@@ -33,14 +34,14 @@
 #'     }
 #' }
 #'
-#' @seealso \code{\link{plot_histogram}}, \code{\link{plot_bar}}, \code{\link{plot_boxplot}}, \code{\link{savePlot}}
+#' @seealso [DataExplorer::plot_bar()], [DataExplorer::plot_histogram()], [DataExplorer::plot_boxplot], [savePlot()]
 #'
 #' @examples
 #' plotUtrecht2019dataset("SVZ_status_nocontact0_contact1")
 #' plotUtrecht2019dataset("post_surgery_therapy_none0_monotherapy1_RTandTMZ2", "OS_months")
 #' plotUtrecht2019dataset("age_years", "KPS_less70.0_more70.1", savePath = "plots/age_KPS_boxplot.png")
 #'
-#' @importFrom DataExplorer plot_histogram, plot_bar, plot_boxplot
+#' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
 #'
 #' @export
 plotUtrecht2019dataset <- function(name1, name2 = NA, savePath = NA) {

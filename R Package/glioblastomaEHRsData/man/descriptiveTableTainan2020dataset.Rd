@@ -2,12 +2,12 @@
 % Please edit documentation in R/descriptiveTableTainan2020dataset.R
 \name{descriptiveTableTainan2020dataset}
 \alias{descriptiveTableTainan2020dataset}
-\title{descriptiveTableTainan2020dataset}
+\title{Descriptive statistic table for the tainan2020dataset}
 \usage{
 descriptiveTableTainan2020dataset(savePath = NULL)
 }
 \arguments{
-\item{savePath}{character string specifying the path and filename for exporting the table.
+\item{savePath}{Character (optional). String specifying the path and filename for exporting the table.
 
  If NULL (default), the table will not be exported.
 
@@ -25,11 +25,14 @@ A 'table1' object containing descriptive statistics grouped by survival status.
 }
 \description{
 Function to create, display and optionally export a table containing descriptive statistics for the tainan2020dataset.\cr
-The table is createtd using the table1 package and is grouped by survival status.
+The table is created using the table1 package and is grouped by survival status.
 }
 \examples{
 descriptiveTableTainan2020dataset()
 
 descriptiveTableTainan2020dataset(savePath = "tables/tainan_table.pdf")
 
+}
+\seealso{
+[table1::table1()]
 }

@@ -1,13 +1,14 @@
-#' @title savePlot
+#' @md
+#' @title Save a plot
 #'
 #' @description Internal function to save a 1D or 2D ggplot2 plot specifying the filepath, filename and extension.
 #' Supported extensions are the ones supported by 'ggsave', default extension is .png.
 #' Default_filename is in this format: 'plot_Dataset_var1_var2_datetime.png'
 #'
-#' @param plot A 'ggplot2' object, the plot to be saved.
-#' @param names A character vector of at least 2 names, first the dataset name,
+#' @param plot 'ggplot2' object. The plot to be saved.
+#' @param names List. List of at least 2 items, first the dataset name,
 #' second the x variable of the plot, and third the y variable of the plot (only in bivariate plots).
-#' @param savePath (Optional)A character string specifying the path and filename for the exported plot.\cr
+#' @param savePath Character (optional). String specifying the path and filename for the exported plot.\cr
 #' The format must be: 'filepath/filename.extension' where:
 #' \itemize{
 #'   \item filepath is the directory (must already exist), default to the working directory;
@@ -16,6 +17,10 @@
 #' }
 #'
 #' @return A status number, 0 if the save was successfull, -1 if there were errors.
+#'
+#' @seealso This internal functions is used by: [plotMunich2019dataset()], [plotTainan2020dataset()] and [plotUtrecht2019dataset()]
+#'
+#' @examples
 #'
 #' @importFrom ggplot2 ggsave
 #'

@@ -2,12 +2,12 @@
 % Please edit documentation in R/descriptiveTableUtrecht2019dataset.R
 \name{descriptiveTableUtrecht2019dataset}
 \alias{descriptiveTableUtrecht2019dataset}
-\title{descriptiveTableUtrecht2019dataset}
+\title{Descriptive statistic table for the utrecht2019dataset}
 \usage{
 descriptiveTableUtrecht2019dataset(savePath = NULL)
 }
 \arguments{
-\item{savePath}{character string specifying the path and filename for exporting the table.
+\item{savePath}{Character (optional). String specifying the path and filename for exporting the table.
 
  If NULL (default), the table will not be exported.
 
@@ -25,11 +25,14 @@ A 'table1' object containing descriptive statistics grouped by survival status.
 }
 \description{
 Function to create, display and optionally export a table containing descriptive statistics for the utrecht2019dataset\cr
-The table is createtd using the table1 package and is grouped by survival status.
+The table is created using the table1 package and is grouped by survival status.
 }
 \examples{
 descriptiveTableUtrecht2019dataset()
 
 descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_table.pdf")
 
+}
+\seealso{
+[table1::table1()]
 }

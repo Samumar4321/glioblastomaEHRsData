@@ -1,9 +1,9 @@
-#' @title descriptiveTableTainan2020dataset
+#' @title Descriptive statistic table for the tainan2020dataset
 #'
 #' @description Function to create, display and optionally export a table containing descriptive statistics for the tainan2020dataset.\cr
-#' The table is createtd using the table1 package and is grouped by survival status.
+#' The table is created using the table1 package and is grouped by survival status.
 #'
-#' @param savePath character string specifying the path and filename for exporting the table.
+#' @param savePath Character (optional). String specifying the path and filename for exporting the table.
 #'
 #'  If NULL (default), the table will not be exported.
 #'
@@ -17,6 +17,8 @@
 #'  }
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
+#'
+#' @seealso [table1::table1()]
 #'
 #' @examples
 #' descriptiveTableTainan2020dataset()
