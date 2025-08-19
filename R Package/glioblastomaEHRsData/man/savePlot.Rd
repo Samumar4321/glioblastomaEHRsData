@@ -7,12 +7,12 @@
 savePlot(plot, names, savePath = "")
 }
 \arguments{
-\item{plot}{A 'ggplot2' object, the plot to be saved.}
+\item{plot}{'ggplot2' object. The plot to be saved.}
 
-\item{names}{A character vector of at least 2 names, first the dataset name,
+\item{names}{List. List of at least 2 items, first the dataset name,
 second the x variable of the plot, and third the y variable of the plot (only in bivariate plots).}
 
-\item{savePath}{(Optional)A character string specifying the path and filename for the exported plot.\cr
+\item{savePath}{Character (optional). String specifying the path and filename for the exported plot.\cr
 The format must be: 'filepath/filename.extension' where:
 \itemize{
 \item filepath is the directory (must already exist), default to the working directory;

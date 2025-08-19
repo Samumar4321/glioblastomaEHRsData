@@ -1,21 +1,18 @@
 #' @md
-#' @title Descriptive statistic table for the munich2019dataset
+#' @title Descriptive statistics table for the munich2019dataset
 #'
 #' @description Function to create, display and optionally export a table containing descriptive statistics for the munich2019dataset.\cr
 #' The table is created using the table1 package and is grouped by survival status.
 #'
 #' @param savePath Character (optional). String specifying the path and filename for exporting the table.
-#'
-#'  If NULL (default), the table will not be exported.
-#'
-#'  If "" (empty string), the table will be saved in the working directory using a default name.
-#'
-#'  Expected format: 'filepath/filename.extensions' where:
-#'  \itemize{
-#'    \item filepath is the directory path, absolute or relative and must already exist;
-#'    \item filename is the name of the file;
-#'    \item extension must be one of 'svg', 'png', or 'pdf'.
-#'  }
+#'  - If NULL (default), the table will not be exported.
+#'  - If "" (empty string), the table will be saved in the working directory using a default name.
+#'  - Expected format: 'filepath/filename.extensions' where:
+#'    \itemize{
+#'      \item filepath is the directory path, absolute or relative and must already exist;
+#'      \item filename is the name of the file;
+#'      \item extension must be one of 'svg', 'png', or 'pdf'.
+#'    }
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
 #'
@@ -24,7 +21,17 @@
 #' @examples
 #' descriptiveTableMunich2019dataset()
 #'
+#' ## Not run:
+#' #Create, display and save the table giving a path, filename and extension
 #' descriptiveTableMunich2019dataset(savePath = "tables/munich_table.pdf")
+#'
+#' #Create, display and save the table giving only the path, default name will be used
+#' descriptiveTableMunich2019dataset(savePath = "tables/")
+#'
+#' #Create, display and save the table giving a path and filename,default extension will be used
+#' descriptiveTableMunich2019dataset(savePath = "tables/munich_table")
+#'
+#' ## End(Not run)
 #'
 #' @importFrom table1 table1
 #' @export

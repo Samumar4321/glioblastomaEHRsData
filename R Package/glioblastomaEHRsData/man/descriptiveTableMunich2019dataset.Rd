@@ -2,22 +2,21 @@
 % Please edit documentation in R/descriptiveTableMunich2019dataset.R
 \name{descriptiveTableMunich2019dataset}
 \alias{descriptiveTableMunich2019dataset}
-\title{Descriptive statistic table for the munich2019dataset}
+\title{Descriptive statistics table for the munich2019dataset}
 \usage{
 descriptiveTableMunich2019dataset(savePath = NULL)
 }
 \arguments{
 \item{savePath}{Character (optional). String specifying the path and filename for exporting the table.
-
-If NULL (default), the table will not be exported.
-
-If "" (empty string), the table will be saved in the working directory using a default name.
-
-Expected format: 'filepath/filename.extensions' where:
+\itemize{
+\item If NULL (default), the table will not be exported.
+\item If "" (empty string), the table will be saved in the working directory using a default name.
+\item Expected format: 'filepath/filename.extensions' where:
 \itemize{
 \item filepath is the directory path, absolute or relative and must already exist;
 \item filename is the name of the file;
 \item extension must be one of 'svg', 'png', or 'pdf'.
+}
 }}
 }
 \value{

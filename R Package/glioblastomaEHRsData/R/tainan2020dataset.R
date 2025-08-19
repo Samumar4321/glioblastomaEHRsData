@@ -4,6 +4,8 @@
 #' It contains data from 84 patients, ranging from demographical information (age and sex) and
 #' treatment characteristics (chemotherapy, radiation volume and dose) to
 #' surgical details and outcomes (Overall and Progress Free Survival).\cr
+#' The dataset focuses on the impact of radiation volume and dose;
+#' it finds that patients with an elevated radiation dose (>60.0 Gy) had better median PFS and OS compared to patients who received a standard radiation dose.\cr
 #' Some data may be missing due to the nature of clinical records.
 #'
 #' @docType data

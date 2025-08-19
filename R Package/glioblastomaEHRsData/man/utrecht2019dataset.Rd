@@ -24,6 +24,8 @@ Electronic Health Records (EHR) of patients affected by GBM at the University Me
 This dataset contains clinical information from 647 patients collected to study prognostic factor
 influencing overall survival in GBM patients, this study focuses on the involvment of the
 subventricolar zone (SVZ), a brain region that may play a role in tumor progression.\cr
+The dataset found out that SVZ contact meant worse prognosis for patients,
+in fact SVZ-contacting tumors had worse median OS compared to non SVZ-contacting patients.\cr
 Some data may be missing due to the nature of clinical records.
 }
 \examples{

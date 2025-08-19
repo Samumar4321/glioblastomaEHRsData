@@ -1,17 +1,16 @@
+#' @md
 #' @title Tainan2020datasetDescriptiveStatistics
 #'
-#' @description Provides descriptive statistics for the 'tainan2020dataset'
+#' @description Provides descriptive statistics for the 'tainan2020dataset'.
+#'  It can display summary statistic for continuous variables, frequency tables for categorical variables
+#'  or both.
 #'
 #' @param show character string for the type of statistic to show.
-#'  There are three options:
-#'
-#'  If 'continuous', summary statistic for continuous variables will be displayed.
-#'
-#'  If 'categorical', summary statistic for categorical variables will be displayed.
-#'
-#'  If 'all', both summary will be displayed.
-#'
-#'  If none of the above an error will be launched.
+#'   There are three options:
+#'  - 'continuous', summary statistic for continuous variables will be displayed.
+#'  - 'categorical', frequency tables for categorical variables will be displayed.
+#'  - 'all', both summary will be displayed.
+#'  - none of the above an error will be launched.
 #'
 #'@return A list or an object depending on the value of \code{show}:
 #'   \describe{
@@ -22,15 +21,38 @@
 #'     the second is a list for categorical variables.}
 #'   }
 #'
+#' @seealso [summarytools::descr()], [summarytools::freq()]
+#'
 #' @examples
-#'   # Show both continuous and categorical statistics
-#'   Tainan2020datasetDescriptiveStatistics(show = "all")
+#'   # Show both continuous and categorical stats
+#'   all <- Tainan2020datasetDescriptiveStatistics(show = "all")
+#'
+#'   # Mean value for the OS_months columns
+#'   all$continuous["Mean", "OS_months"]
+#'
+#'   # Min, Median and Max value for ALL the numeric columns
+#'   all$continuous[c("Min","Median","Max"),]
+#'
+#'   # Get the frequency table of the third categorical column
+#'   all$categorical[[3]]
 #'
 #'   # Only continuous variables
-#'   Tainan2020datasetDescriptiveStatistics("continuous")
+#'   cont <- Tainan2020datasetDescriptiveStatistics("continuous")
+#'
+#'   # Statistics for age_years column
+#'   cont[, "age_years"]
 #'
 #'   # Only categorical variables
-#'   Tainan2020datasetDescriptiveStatistics(show = "categorical")
+#'   cat <- Tainan2020datasetDescriptiveStatistics("categorical")
+#'
+#'   # Frequency values for all factors of the first categorical column
+#'   cat[[1]][,"Freq"]
+#'
+#'   # Statistics for the Yes factor of the first categorical column
+#'   cat[[1]]["Yes",]
+#'
+#'   # Frequency of the No factor, a value of the first categorical column
+#'   cat[[1]]["No", "Freq"]
 #'
 #' @importFrom summarytools descr freq
 #' @export
@@ -38,8 +60,8 @@ Tainan2020datasetDescriptiveStatistics <- function(show = "all"){
   result <- switch(show,
                    "continuous" = summarytools::descr(tainan2020dataset),
                    "categorical" = summarytools::freq(tainan2020dataset),
-                   "all" = list(summarytools::descr(tainan2020dataset),
-                                summarytools::freq(tainan2020dataset)),
+                   "all" = list(continuous = summarytools::descr(tainan2020dataset),
+                                categorical = summarytools::freq(tainan2020dataset)),
                    stop("Invalid 'show' value, use one of 'all', 'categorical' or 'continuous'."))
   return(result)
 }
