@@ -27,9 +27,20 @@ Function to create, display and optionally export a table containing descriptive
 The table is created using the table1 package and is grouped by survival status.
 }
 \examples{
+# Create and display the table, without saving anything
 descriptiveTableMunich2019dataset()
 
+## Not run:
+# Create, display and save the table giving a path, filename and extension
 descriptiveTableMunich2019dataset(savePath = "tables/munich_table.pdf")
+
+# Create, display and save the table giving only the path, default name will be used
+descriptiveTableMunich2019dataset(savePath = "tables/")
+
+# Create, display and save the table giving a path and filename, default extension will be used
+descriptiveTableMunich2019dataset(savePath = "tables/munich_table")
+
+## End(Not run)
 
 }
 \seealso{

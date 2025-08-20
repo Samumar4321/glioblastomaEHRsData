@@ -11,12 +11,14 @@ plotMunich2019dataset(name1, name2 = NA, savePath = NULL)
 
 \item{name2}{Character (optional). The name of the second variable for bivariate plots. Default is NA.}
 
-\item{savePath}{Character (optional). File path where the plot should be saved. Default is NULL.
+\item{savePath}{Character (optional). File path where the plot should be saved.
+Default is NULL which means no plot will be saved.
+To save a plot using all the default options put an empty string.
 The format must be: 'filepath/filename.extension' where:
 \itemize{
 \item filepath is the directory (must already exist), default is the working directory;
 \item filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
-\item extension must be one of the supported 'ggsave' extensions, default is .png.
+\item extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 }}
 }
 \value{
@@ -46,9 +48,23 @@ The function supports the following plotting logic:
 }
 }
 \examples{
+# Univariate plot without saving
 plotMunich2019dataset("age_years")
+
+# Bivariate plot without saving
 plotMunich2019dataset("cHsp70_low0_high1", "sex_male0_female1")
+
+## Not run
+# Bivariate plot saved in the path directory with the chosen name and extension
 plotMunich2019dataset("age_years", "sex_male0_female1", savePath = "plots/age_sex_boxplot.png")
+
+# Univariate plot saved in the working directory with the chosen name and extension
+plotMunich2019dataset("sex_male0_female1", savePath = "gender_boxplot.jpeg")
+
+# Univariate plot saved in the path directory with default name and extension
+plotMunich2019dataset("MGMTmethylation_methylated1_unmethylated0", savePath = "munichPlots")
+
+## End(Not run)
 
 }
 \seealso{

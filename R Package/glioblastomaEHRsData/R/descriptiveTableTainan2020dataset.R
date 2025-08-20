@@ -19,16 +19,17 @@
 #' @seealso [table1::table1()]
 #'
 #' @examples
+#' # Create and display the table, without saving anything
 #' descriptiveTableTainan2020dataset()
 #'
 #' ## Not run:
-#' #Create, display and save the table giving a path, filename and extension
+#' # Create, display and save the table giving a path, filename and extension
 #' descriptiveTableTainan2020dataset(savePath = "tables/tainan_table.pdf")
 #'
-#' #Create, display and save the table giving only the path, default name will be used
+#' # Create, display and save the table giving only the path, default name will be used
 #' descriptiveTableTainan2020dataset(savePath = "tables/")
 #'
-#' #Create, display and save the table giving a path and filename,default extension will be used
+#' # Create, display and save the table giving a path and filename,default extension will be used
 #' descriptiveTableTainan2020dataset(savePath = "tables/tainan_table")
 #'
 #' ## End(Not run)

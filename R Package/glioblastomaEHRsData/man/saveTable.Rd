@@ -15,9 +15,9 @@ other items may be used for testing}
 \item{savePath}{A character string specifying the full path and filename for the exported table.\cr
 The format must be: 'filepath/filename.extension' where:
 \itemize{
-  \item filepath is the directory (must already exist), default to the working directory;
-  \item filename is the name of the file, default to default_filename;
-  \item extension must be one of 'svg', 'png', or 'pdf', default is 'png'.
+\item filepath is the directory (must already exist), default to the working directory;
+\item filename is the name of the file, default to default_filename;
+\item extension must be one of 'svg', 'png', or 'pdf', must exists unless using the default file name.
 }}
 }
 \value{
@@ -26,5 +26,15 @@ A status number, 0 if the save was successfull, -1 if there were errors.
 \description{
 Internal function to save a table1 table object in svg, png or pdf format.
 Default extension is png, default_filename is in this format: 'table_dataset_datetime.png'.
+}
+\details{
+The functions takes a table1 object, a character vector containing the dataset name and the save path to export the table.
+It first checks whether the dataset name is present, the it creates the default file name.
+If the save path doesn't exist or in an empty string it saves the plot in the working directory using the default file name.
+If the save path exists but doesn't contain the file name, it saves the plot in the path directory using the default file name.
+If the save path exists and has a file name, it saves the plot in the path directory with the user chosen file name.
+}
+\seealso{
+This internal functions is used by: \code{\link[=descriptiveTableMunich2019dataset]{descriptiveTableMunich2019dataset()}}, \code{\link[=descriptiveTableTainan2020dataset]{descriptiveTableTainan2020dataset()}} and \code{\link[=descriptiveTableUtrecht2019dataset]{descriptiveTableUtrecht2019dataset()}}
 }
 \keyword{internal}

@@ -5,22 +5,25 @@
 #' Supported extensions are the ones supported by 'ggsave', default extension is .png.
 #' Default_filename is in this format: 'plot_Dataset_var1_var2_datetime.png'
 #'
+#' @details
+#' The functions takes a table1 object, a character vector containing the dataset name and the save path to export the table.
+#' It first checks whether the dataset name is present, the it creates the default file name.
+#' If the save path doesn't exist or in an empty string it saves the plot in the working directory using the default file name.
+#' If the save path exists but doesn't contain the file name, it saves the plot in the path directory using the default file name.
+#' If the save path exists and has a file name, it saves the plot in the path directory with the user chosen file name.
+#'
 #' @param plot 'ggplot2' object. The plot to be saved.
 #' @param names List. List of at least 2 items, first the dataset name,
 #' second the x variable of the plot, and third the y variable of the plot (only in bivariate plots).
 #' @param savePath Character (optional). String specifying the path and filename for the exported plot.\cr
 #' The format must be: 'filepath/filename.extension' where:
-#' \itemize{
-#'   \item filepath is the directory (must already exist), default to the working directory;
-#'   \item filename is the name of the file, default to default_filename;
-#'   \item extension must be one of the supported 'ggsave' extensions, default is .png.
-#' }
+#'   - filepath is the directory (must already exist), default to the working directory;
+#'   - filename is the name of the file, default to default_filename;
+#'   - extension must be one of the supported 'ggsave' extensions, must exists unless using the default file name.
 #'
 #' @return A status number, 0 if the save was successfull, -1 if there were errors.
 #'
 #' @seealso This internal functions is used by: [plotMunich2019dataset()], [plotTainan2020dataset()] and [plotUtrecht2019dataset()]
-#'
-#' @examples
 #'
 #' @importFrom ggplot2 ggsave
 #'

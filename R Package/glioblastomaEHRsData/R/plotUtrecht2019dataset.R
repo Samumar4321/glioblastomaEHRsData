@@ -9,37 +9,45 @@
 #'
 #' @param name1 Character. The name of the first variable to plot.
 #' @param name2 Character (optional). The name of the second variable for bivariate plots. Default is NA.
-#' @param savePath Character (optional). File path where the plot should be saved. Default is NULL.
+#' @param savePath Character (optional). File path where the plot should be saved.
+#'  Default is NULL which means no plot will be saved.
+#'  To save a plot using all the default options put an empty string.
 #'  The format must be: 'filepath/filename.extension' where:
-#'  \itemize{
-#'    \item filepath is the directory (must already exist), default is the working directory;
-#'    \item filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
-#'    \item extension must be one of the supported 'ggsave' extensions, default is .png.
-#' }
+#'    - filepath is the directory (must already exist), default is the working directory;
+#'    - filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
+#'    - extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 #'
 #' @return A 'ggplot2' object representing the generated plot. If the specified variables are not found in the dataset, returns '-1'.
 #'
 #' @details
 #' The function supports the following plotting logic:
-#' \itemize{
-#'   \item If only 'name1' is provided:
-#'     \itemize{
-#'       \item Numeric/integer variable → Histogram.
-#'       \item Character/factor variable → Bar plot.
-#'     }
-#'   \item If both 'name1' and 'name2' are provided:
-#'     \itemize{
-#'       \item One numeric/integer and one categorical → Boxplot.
-#'       \item Both categorical → Grouped bar plot.
-#'     }
-#' }
+#'    - If only 'name1' is provided:
+#'      - Numeric/integer variable → Histogram.
+#'      - Character/factor variable → Bar plot.
+#'    - If both 'name1' and 'name2' are provided:
+#'      - One numeric/integer and one categorical → Boxplot.
+#'      - Both categorical → Grouped bar plot.
 #'
 #' @seealso [DataExplorer::plot_bar()], [DataExplorer::plot_histogram()], [DataExplorer::plot_boxplot], [savePlot()]
 #'
 #' @examples
+#' # Univariate plot without saving
 #' plotUtrecht2019dataset("SVZ_status_nocontact0_contact1")
+#'
+#' # Bivariate plot without saving
 #' plotUtrecht2019dataset("post_surgery_therapy_none0_monotherapy1_RTandTMZ2", "OS_months")
+#'
+#' ## Not run
+#' # Bivariate plot saved in the specified directory with the chosen name and extension
 #' plotUtrecht2019dataset("age_years", "KPS_less70.0_more70.1", savePath = "plots/age_KPS_boxplot.png")
+#'
+#' # Univariate plot save in the working directory with the chosen name and extension
+#' plotUtrecht2019dataset("survived_yes1_no0", savePath = "survival_plot.png")
+#'
+#' # Bivariate plot save in the path directory using the default name
+#' plotUtrecht2019dataset("survived_yes1_no0", savePath = "utrecht_plots")
+#'
+#' ## End(Not run)
 #'
 #' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
 #'
@@ -74,7 +82,7 @@ plotUtrecht2019dataset <- function(name1, name2 = NA, savePath = NA) {
     }
   }
 
-  if(!is.null(savePath)) {
+  if(!is.na(savePath)) {
     savePlot(plot,
              names = c("Utrecht2019datset", name1, name2),
              savePath = savePath)

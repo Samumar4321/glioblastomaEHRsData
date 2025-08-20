@@ -19,16 +19,17 @@
 #' @seealso [table1::table1()]
 #'
 #' @examples
+#' # Create and display the table, without saving anything
 #' descriptiveTableUtrecht2019dataset()
 #'
 #' ## Not run:
-#' #Create, display and save the table giving a path, filename and extension
+#' # Create, display and save the table giving a path, filename and extension
 #' descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_table.pdf")
 #'
-#' #Create, display and save the table giving only the path, default name will be used
+#' # Create, display and save the table giving only the path, default name will be used
 #' descriptiveTableUtrecht2019dataset(savePath = "tables/")
 #'
-#' #Create, display and save the table giving a path and filename,default extension will be used
+#' # Create, display and save the table giving a path and filename,default extension will be used
 #' descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_table")
 #'
 #' ## End(Not run)

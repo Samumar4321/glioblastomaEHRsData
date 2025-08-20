@@ -11,12 +11,14 @@ plotUtrecht2019dataset(name1, name2 = NA, savePath = NA)
 
 \item{name2}{Character (optional). The name of the second variable for bivariate plots. Default is NA.}
 
-\item{savePath}{Character (optional). File path where the plot should be saved. Default is NULL.
+\item{savePath}{Character (optional). File path where the plot should be saved.
+Default is NULL which means no plot will be saved.
+To save a plot using all the default options put an empty string.
 The format must be: 'filepath/filename.extension' where:
 \itemize{
 \item filepath is the directory (must already exist), default is the working directory;
 \item filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
-\item extension must be one of the supported 'ggsave' extensions, default is .png.
+\item extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 }}
 }
 \value{
@@ -45,9 +47,23 @@ The function supports the following plotting logic:
 }
 }
 \examples{
+# Univariate plot without saving
 plotUtrecht2019dataset("SVZ_status_nocontact0_contact1")
+
+# Bivariate plot without saving
 plotUtrecht2019dataset("post_surgery_therapy_none0_monotherapy1_RTandTMZ2", "OS_months")
+
+## Not run
+# Bivariate plot saved in the specified directory with the chosen name and extension
 plotUtrecht2019dataset("age_years", "KPS_less70.0_more70.1", savePath = "plots/age_KPS_boxplot.png")
+
+# Univariate plot save in the working directory with the chosen name and extension
+plotUtrecht2019dataset("survived_yes1_no0", savePath = "survival_plot.png")
+
+# Bivariate plot save in the path directory using the default name
+plotUtrecht2019dataset("survived_yes1_no0", savePath = "utrecht_plots")
+
+## End(Not run)
 
 }
 \seealso{
