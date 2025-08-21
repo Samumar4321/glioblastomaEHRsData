@@ -15,7 +15,7 @@ descriptiveTableMunich2019dataset(savePath = NULL)
 \itemize{
 \item filepath is the directory path, absolute or relative and must already exist;
 \item filename is the name of the file;
-\item extension must be one of 'svg', 'png', or 'pdf'.
+\item extension must be one of 'png', or 'pdf', must exists unless using the default file name.
 }
 }}
 }

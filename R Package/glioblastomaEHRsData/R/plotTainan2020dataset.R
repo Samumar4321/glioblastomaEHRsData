@@ -50,6 +50,7 @@
 #' ## End(Not run)
 #'
 #' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
+#' @importFrom ggplot2 labs
 #'
 #' @export
 plotTainan2020dataset <- function(name1, name2 = NA, savePath = NA) {

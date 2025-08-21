@@ -1,7 +1,7 @@
 #' @md
 #' @title saveTable
 #'
-#' @description Internal function to save a table1 table object in svg, png or pdf format.
+#' @description Internal function to save a table1 table object in png or pdf format.
 #' Default extension is png, default_filename is in this format: 'table_dataset_datetime.png'.
 #'
 #' @details
@@ -18,7 +18,7 @@
 #' The format must be: 'filepath/filename.extension' where:
 #'   - filepath is the directory (must already exist), default to the working directory;
 #'   - filename is the name of the file, default to default_filename;
-#'   - extension must be one of 'svg', 'png', or 'pdf', must exists unless using the default file name.
+#'   - extension must be one of 'png', or 'pdf', must exists unless using the default file name.
 #'
 #'
 #' @return A status number, 0 if the save was successfull, -1 if there were errors.
@@ -95,7 +95,8 @@
 saveTable <- function(t1, names, savePath = "") {
   dataset <- names[1]
   if(is.na(dataset)) {
-    stop("Dataset not named")
+    warning("Dataset not named")
+    return(-1)
   }
   default_name <- paste0(paste("table",
                                dataset,
@@ -113,14 +114,14 @@ saveTable <- function(t1, names, savePath = "") {
     if(has_filename){
       # Check if the directory exists
       if(!dir.exists(dirname(savePath))){
-        stop("Specified directory does not exists")
+        warning("Specified directory does not exists")
         return(-1)
       }
 
       # Check the extension
       ext <- tools::file_ext(savePath)
-      if(!grepl("^svg$|^png$|^pdf$", ext)) {
-        stop("Invalid extension, please use .svg, .png or .pdf instead")
+      if(!grepl("^png$|^pdf$", ext)) {
+        warning("Invalid extension, please use .png or .pdf instead")
         return(-1)
       }
 
@@ -138,7 +139,7 @@ t1
         rmarkdown::render("table1.Rmd", output_file = savePath)
         file.remove("table1.Rmd")
       }
-      else if (ext == "png" || ext == "svg") {
+      else if (ext == "png") {
         save_as_image(t1flex(t1), savePath)
       }
       return(0)
@@ -146,7 +147,7 @@ t1
     else{
       # Check if the directory exists
       if(!dir.exists(savePath)) {
-        stop("Specified directory does not exists")
+        warning("Specified directory does not exists")
         return(-1)
       }
       # Save in the path directory with default filename

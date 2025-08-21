@@ -11,7 +11,7 @@
 #'    \itemize{
 #'      \item filepath is the directory path, absolute or relative and must already exist;
 #'      \item filename is the name of the file;
-#'      \item extension must be one of 'svg', 'png', or 'pdf'.
+#'      \item extension must be one of 'svg', 'png', or 'pdf', must exists unless using the default file name.
 #'    }
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
@@ -55,9 +55,13 @@ descriptiveTableTainan2020dataset <- function(savePath = NULL) {
               render.continuous = c(.= "Median [MIN - MAX]",
                                     .= "Mean (SD)",
                                     .= "Q1 - Q3"))
-  if(!is.null(savePath))
+  if(!is.null(savePath)) {
     status <- saveTable(t1,
                         names = c("Tainan2020dataset"),
                         savePath = savePath)
+    if(status == -1)
+      warning("Saving process interrupted, read the error above")
+  }
+
   return(t1)
 }
