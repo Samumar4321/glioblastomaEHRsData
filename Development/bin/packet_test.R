@@ -1,25 +1,32 @@
-source("~/GitHub/glioblastomaEHRsData/Development/bin/loadTestDataset.R")
+library(pacman)
+p_load(devtools, roxygen2)
 
 #MUNICH TESTS ----
-munich_cont <- Municht2019datasetDescriptiveStatistics(show = "continuous")
-munich_cat <- Municht2019datasetDescriptiveStatistics(show = "categorical")
-munich_all <- Municht2019datasetDescriptiveStatistics()
+munich_cont <- Munich2019datasetDescriptiveStatistics(show = "continuous")
+munich_cat <- Munich2019datasetDescriptiveStatistics(show = "categorical")
+munich_all <- Munich2019datasetDescriptiveStatistics()
 
 munich_t1 <- descriptiveTableMunich2019dataset()
-munich_t2 <- descriptiveTableMunich2019dataset("img/munich_table.svg")
+descriptiveTableMunich2019dataset("img/munich_table.pdf")
+descriptiveTableMunich2019dataset("img/munich_table.png")
+descriptiveTableMunich2019dataset("munich_table.png")
+descriptiveTableMunich2019dataset("img/")
+descriptiveTableMunich2019dataset("img")
+descriptiveTableMunich2019dataset("img/munich_table")
+descriptiveTableMunich2019dataset("munich_table")
 
 #Numerica
-munich_p1 <- plotMunich2019dataset(name1 = "age_years")
+plotMunich2019dataset(name1 = "age_years")
 #Categorica
-munich_p2 <- plotMunich2019dataset(name1 = "MGMTmethylation_methylated1_unmethylated0")
+plotMunich2019dataset(name1 = "MGMTmethylation_methylated1_unmethylated0")
 #Num vs Num
-munich_p3 <- plotMunich2019dataset(name1 = "age_years", name2 = "OS_months")
+plotMunich2019dataset(name1 = "age_years", name2 = "OS_months")
 #Num vs Cat
-munich_p4 <- plotMunich2019dataset(name1 = "age_years", name2 = "sex_male0_female1", savePath = "img/")
+plotMunich2019dataset(name1 = "age_years", name2 = "sex_male0_female1", savePath = "img")
 #Cat vs Num
-munich_p5 <- plotMunich2019dataset(name1 = "cHsp70_low0_high1", name2 = "age_years")
+plotMunich2019dataset(name1 = "cHsp70_low0_high1", name2 = "age_years")
 #Cat vs Cat
-munich_p6 <- plotMunich2019dataset(name1 = "cHsp70_low0_high1", name2 = "MGMTmethylation_methylated1_unmethylated0")
+plotMunich2019dataset(name1 = "cHsp70_low0_high1", name2 = "MGMTmethylation_methylated1_unmethylated0")
 
 #TAINAN TESTS ----
 tainan_cont <- Tainan2020datasetDescriptiveStatistics(show = "continuous")
@@ -27,7 +34,13 @@ tainan_cat <- Tainan2020datasetDescriptiveStatistics(show = "categorical")
 tainan_all <- Tainan2020datasetDescriptiveStatistics()
 
 tainan_t1 <- descriptiveTableTainan2020dataset()
-tainan_t2 <- descriptiveTableTainan2020dataset("img/tainan_table.svg")
+descriptiveTableTainan2020dataset("img/tainan_table.png")
+descriptiveTableTainan2020dataset("img/tainan_table.pdf")
+descriptiveTableTainan2020dataset("tainan_table.png")
+descriptiveTableTainan2020dataset("img")
+descriptiveTableTainan2020dataset("img/")
+descriptiveTableTainan2020dataset("img/tainan")
+descriptiveTableTainan2020dataset("tainan")
 
 #Numerica
 tainan_p1 <- plotTainan2020dataset(name1 = "PFS_months")
@@ -48,7 +61,13 @@ utrecht_cat <- Utrecht2019datasetDescriptiveStatistics(show = "categorical")
 utrecht_all <- Utrecht2019datasetDescriptiveStatistics()
 
 utrecht_t1 <- descriptiveTableUtrecht2019dataset()
-utrecht_t2 <- descriptiveTableUtrecht2019dataset("img/utrecht_table.svg")
+descriptiveTableUtrecht2019dataset("img/utrecht_table.png")
+descriptiveTableUtrecht2019dataset("img/utrecht_table.pdf")
+descriptiveTableUtrecht2019dataset("utrecht_table.png")
+descriptiveTableUtrecht2019dataset("img/")
+descriptiveTableUtrecht2019dataset("img")
+descriptiveTableUtrecht2019dataset("img/utrecht")
+descriptiveTableUtrecht2019dataset("utrecht")
 
 #Numerica
 utrecht_p1 <- plotUtrecht2019dataset(name1 = "OS_months")
