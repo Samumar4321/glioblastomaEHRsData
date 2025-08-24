@@ -25,7 +25,7 @@ A status number, 0 if the save was successfull, -1 if there were errors.
 }
 \description{
 Internal function to save a table1 table object in png or pdf format.
-Default extension is png, default_filename is in this format: 'table_dataset_datetime.png'.
+Default extension is png, default_filename is in this format: 'table_dataset_timestamp.png'.
 }
 \details{
 The functions takes a table1 object, a character vector containing the dataset name and the save path to export the table.

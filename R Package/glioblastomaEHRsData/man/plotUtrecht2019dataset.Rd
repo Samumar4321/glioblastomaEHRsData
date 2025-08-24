@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotUtrecht2019dataset.R
 \name{plotUtrecht2019dataset}
 \alias{plotUtrecht2019dataset}
-\title{Plot variables from the Utrecht2019dataset}
+\title{Plot variables from the utrecht2019dataset}
 \usage{
 plotUtrecht2019dataset(name1, name2 = NA, savePath = NA)
 }
@@ -17,7 +17,7 @@ To save a plot using all the default options put an empty string.
 The format must be: 'filepath/filename.extension' where:
 \itemize{
 \item filepath is the directory (must already exist), default is the working directory;
-\item filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
+\item filename is the name of the file, default to 'plot_utrecht2019dataset_var1_var2_timestamp.png';
 \item extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 }}
 }

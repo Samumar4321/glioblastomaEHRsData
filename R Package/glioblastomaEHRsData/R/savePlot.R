@@ -3,7 +3,7 @@
 #'
 #' @description Internal function to save a 1D or 2D ggplot2 plot specifying the filepath, filename and extension.
 #' Supported extensions are the ones supported by 'ggsave', default extension is .png.
-#' Default_filename is in this format: 'plot_Dataset_var1_var2_datetime.png'
+#' Default_filename is in this format: 'plot_Dataset_var1_var2_timestamp.png'
 #'
 #' @details
 #' The functions takes a table1 object, a character vector containing the dataset name and the save path to export the table.

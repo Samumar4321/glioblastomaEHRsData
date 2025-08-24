@@ -1,5 +1,5 @@
 #' @md
-#' @title Plot variables from the Tainan2020dataset
+#' @title Plot variables from the tainan2020dataset
 #'
 #' @description This function creates a plot of one or two variables from the 'tainan2020dataset' dataframe.
 #' It automatically chooses the appropriate plot type based on the variable types and
@@ -14,7 +14,7 @@
 #'  To save a plot using all the default options put an empty string.
 #'  The format must be: 'filepath/filename.extension' where:
 #'    - filepath is the directory (must already exist), default is the working directory;
-#'    - filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
+#'    - filename is the name of the file, default to 'plot_tainan2020dataset_var1_var2_timestamp.png';
 #'    - extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 #'
 #' @return A 'ggplot2' object representing the generated plot. If the specified variables are not found in the dataset, returns '-1'.

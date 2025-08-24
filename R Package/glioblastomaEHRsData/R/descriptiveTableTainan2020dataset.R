@@ -8,11 +8,9 @@
 #'  - If NULL (default), the table will not be exported.
 #'  - If "" (empty string), the table will be saved in the working directory using a default name.
 #'  - Expected format: 'filepath/filename.extensions' where:
-#'    \itemize{
-#'      \item filepath is the directory path, absolute or relative and must already exist;
-#'      \item filename is the name of the file;
-#'      \item extension must be one of 'svg', 'png', or 'pdf', must exists unless using the default file name.
-#'    }
+#'    - filepath is the directory (must already exist), default is the working directory;
+#'    - filename is the name of the file, default to 'table_tainan2020dataset_timestamp.png';
+#'    - extension must be one of png or pdf and must be specified, unless using the default filename.
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
 #'

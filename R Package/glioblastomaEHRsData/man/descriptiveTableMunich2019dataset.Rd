@@ -13,9 +13,9 @@ descriptiveTableMunich2019dataset(savePath = NULL)
 \item If "" (empty string), the table will be saved in the working directory using a default name.
 \item Expected format: 'filepath/filename.extensions' where:
 \itemize{
-\item filepath is the directory path, absolute or relative and must already exist;
-\item filename is the name of the file;
-\item extension must be one of 'png', or 'pdf', must exists unless using the default file name.
+\item filepath is the directory (must already exist), default is the working directory;
+\item filename is the name of the file, default to 'table_munich2019dataset_timestamp.png';
+\item extension must be one of png or pdf and must be specified, unless using the default filename.
 }
 }}
 }

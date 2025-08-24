@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotMunich2019dataset.R
 \name{plotMunich2019dataset}
 \alias{plotMunich2019dataset}
-\title{Plot variables from the Munich2019Dataset}
+\title{Plot variables from the munich2019dataset}
 \usage{
 plotMunich2019dataset(name1, name2 = NA, savePath = NULL)
 }
@@ -17,7 +17,7 @@ To save a plot using all the default options put an empty string.
 The format must be: 'filepath/filename.extension' where:
 \itemize{
 \item filepath is the directory (must already exist), default is the working directory;
-\item filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
+\item filename is the name of the file, default to 'plot_munich2019dataset_var1_var2_timestamp.png';
 \item extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 }}
 }
@@ -27,8 +27,8 @@ If the specified variables are not found in the dataset, returns '-1'.
 }
 \description{
 This function creates a plot of one or two variables from the 'munich2019dataset' dataframe.
-It automatically chooses the appropriate plot type based on the variable types and
-it can export and save the plot by specifying the directory, filename and extension.
+It automatically chooses the appropriate plot type based on the variable types.
+It can export and save the plot by specifying the directory, filename and extension.
 Provided variable names need to be in the dataset, otherwise an error will be launched.
 The function makes it easy to plot univariate and bivariate plots while offering a quick way to save and export them.
 }

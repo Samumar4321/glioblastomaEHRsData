@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotTainan2020dataset.R
 \name{plotTainan2020dataset}
 \alias{plotTainan2020dataset}
-\title{Plot variables from the Tainan2020dataset}
+\title{Plot variables from the tainan2020dataset}
 \usage{
 plotTainan2020dataset(name1, name2 = NA, savePath = NA)
 }
@@ -17,7 +17,7 @@ To save a plot using all the default options put an empty string.
 The format must be: 'filepath/filename.extension' where:
 \itemize{
 \item filepath is the directory (must already exist), default is the working directory;
-\item filename is the name of the file, default to 'plot_Dataset_var1_var2_datetime.png';
+\item filename is the name of the file, default to 'plot_tainan2020dataset_var1_var2_timestamp.png';
 \item extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 }}
 }

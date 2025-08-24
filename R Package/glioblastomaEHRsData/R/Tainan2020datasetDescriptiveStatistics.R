@@ -10,16 +10,15 @@
 #'  - 'continuous', summary statistic for continuous variables will be displayed.
 #'  - 'categorical', frequency tables for categorical variables will be displayed.
 #'  - 'all', both summary will be displayed.
-#'  - none of the above an error will be launched.
+#'  - none of the above a warning will be launched.
 #'
 #'@return A list or an object depending on the value of \code{show}:
-#'   \describe{
-#'     \item{If \code{show = "continuous"}}{A data frame with descriptive statistics.}
-#'     \item{If \code{show = "categorical"}}{A list of frequency tables.}
-#'     \item{If \code{show = "all"}}{A list of 2 items,
-#'     the first is a data frame for continuous variable,
-#'     the second is a list for categorical variables.}
-#'   }
+#'      - If \code{show = "continuous"} A data frame with descriptive statistics.
+#'      - If \code{show = "categorical"} A list of frequency tables.
+#'      - If \code{show = "all"} A list of 2 items,
+#'        the first is a data frame for continuous variable,
+#'        the second is a list for categorical variables.
+#'      - If show is not one of the above return a warning.
 #'
 #' @seealso [summarytools::descr()], [summarytools::freq()]
 #'
@@ -56,12 +55,30 @@
 #'
 #' @importFrom summarytools descr freq
 #' @export
-Tainan2020datasetDescriptiveStatistics <- function(show = "all"){
+Tainan2020datasetDescriptiveStatistics <- function(show = "all") {
+
+  # Identify variable types
+  cont_vars <- sapply(tainan2020dataset, is.numeric)
+  cat_vars  <- sapply(tainan2020dataset, function(x) is.factor(x) || is.character(x))
+
+  # Compute stats
+  cont_stats <- NULL
+  cat_stats  <- NULL
+
+  if (any(cont_vars)) {
+    cont_stats <- summarytools::descr(tainan2020dataset[, cont_vars, drop = FALSE])
+  }
+
+  if (any(cat_vars)) {
+    cat_stats <- summarytools::freq(tainan2020dataset[, cat_vars, drop = FALSE])
+  }
+
+  # Return based on "show"
   result <- switch(show,
-                   "continuous" = summarytools::descr(tainan2020dataset),
-                   "categorical" = summarytools::freq(tainan2020dataset),
-                   "all" = list(continuous = summarytools::descr(tainan2020dataset),
-                                categorical = summarytools::freq(tainan2020dataset)),
-                   stop("Invalid 'show' value, use one of 'all', 'categorical' or 'continuous'."))
+                   "continuous" = cont_stats,
+                   "categorical" = cat_stats,
+                   "all" = list('continuous' = cont_stats, 'categorical' = cat_stats),
+                   warning("Invalid 'show' value, use one of 'all', 'categorical' or 'continuous'."))
+
   return(result)
 }

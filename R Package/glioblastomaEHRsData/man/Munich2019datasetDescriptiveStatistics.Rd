@@ -13,18 +13,17 @@ There are three options:
 \item 'continuous', summary statistic for continuous variables will be displayed.
 \item 'categorical', frequency tables for categorical variables will be displayed.
 \item 'all', both summary will be displayed.
-\item none of the above an error will be launched.
+\item none of the above a warning will be launched.
 }}
 }
 \value{
 A list or an object depending on the value of \code{show}:
-\describe{
-\item{If \code{show = "continuous"}}{A data frame with descriptive statistics.}
-\item{If \code{show = "categorical"}}{A list of frequency tables.}
-\item{If \code{show = "all"}}{A list of 2 items,
+- If \code{show = "continuous"} A data frame with descriptive statistics.
+- If \code{show = "categorical"} A list of frequency tables.
+- If \code{show = "all"} A list of 2 items,
 the first is a data frame for continuous variable,
-the second is a list for categorical variables.}
-}
+the second is a list for categorical variables.
+- If show is not one of the above return a warning.
 }
 \description{
 Provides descriptive statistics for the 'munich2019dataset'.
