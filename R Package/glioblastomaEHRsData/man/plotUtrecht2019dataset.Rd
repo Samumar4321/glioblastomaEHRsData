@@ -22,7 +22,8 @@ The format must be: 'filepath/filename.extension' where:
 }}
 }
 \value{
-A 'ggplot2' object representing the generated plot. If the specified variables are not found in the dataset, returns '-1'.
+A 'ggplot2' object representing the generated plot.
+If the specified variables are not found in the dataset, returns a warning.
 }
 \description{
 This function creates a plot of one or two variables from the 'utrecht2019dataset' dataframe.

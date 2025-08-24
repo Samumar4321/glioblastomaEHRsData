@@ -4,7 +4,7 @@
 \alias{plotMunich2019dataset}
 \title{Plot variables from the munich2019dataset}
 \usage{
-plotMunich2019dataset(name1, name2 = NA, savePath = NULL)
+plotMunich2019dataset(name1, name2 = NA, savePath = NA)
 }
 \arguments{
 \item{name1}{Character. The name of the first variable to plot.}
@@ -23,7 +23,7 @@ The format must be: 'filepath/filename.extension' where:
 }
 \value{
 A 'ggplot2' object representing the generated plot.
-If the specified variables are not found in the dataset, returns '-1'.
+If the specified variables are not found in the dataset, returns a warning.
 }
 \description{
 This function creates a plot of one or two variables from the 'munich2019dataset' dataframe.

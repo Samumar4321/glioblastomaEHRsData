@@ -17,7 +17,8 @@
 #'    - filename is the name of the file, default to 'plot_tainan2020dataset_var1_var2_timestamp.png';
 #'    - extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 #'
-#' @return A 'ggplot2' object representing the generated plot. If the specified variables are not found in the dataset, returns '-1'.
+#' @return A 'ggplot2' object representing the generated plot.
+#' If the specified variables are not found in the dataset, returns a warning.
 #'
 #' @details
 #' The function supports the following plotting logic:
@@ -55,12 +56,10 @@
 #' @export
 plotTainan2020dataset <- function(name1, name2 = NA, savePath = NA) {
   if (!(name1 %in% names(tainan2020dataset))) {
-    warning(paste("No such variable ", name1, " found in the dataset."))
-    return(-1)
+    return(warning(sprintf("No such variable '%s' found in the dataset.", name1)))
   }
   if (!is.na(name2) && !(name2 %in% names(tainan2020dataset))) {
-    warning(paste("No such variable ", name1, " found in the dataset."))
-    return(-1)
+    return(warning(sprintf("No such variable '%s' found in the dataset.", name2)))
   }
 
   if(is.na(name2)) {
@@ -82,11 +81,12 @@ plotTainan2020dataset <- function(name1, name2 = NA, savePath = NA) {
     }
   }
 
-  if(!is.null(savePath)) {
-    savePlot(plot,
-             names = c("Tainan2020datset", name1, name2),
-             savePath = savePath)
+  if(!is.na(savePath)) {
+    r <- savePlot(plot,
+                  names = c("Tainan2020datset", name1, name2),
+                  savePath = savePath)
+    if(r != 0)
+      warning(sprintf("Plot saving canceled: %s", r))
   }
-
   return(plot)
 }

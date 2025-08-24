@@ -18,7 +18,7 @@
 #'    - extension must be one of the supported 'ggsave' extensions and must be specified, unless using the default file name.
 #'
 #' @return A 'ggplot2' object representing the generated plot.
-#' If the specified variables are not found in the dataset, returns '-1'.
+#' If the specified variables are not found in the dataset, returns a warning.
 #'
 #' @details
 #' The function supports the following plotting logic:
@@ -54,14 +54,12 @@
 #' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
 #'
 #' @export
-plotMunich2019dataset <- function(name1, name2 = NA, savePath = NULL) {
+plotMunich2019dataset <- function(name1, name2 = NA, savePath = NA) {
   if (!(name1 %in% names(munich2019dataset))) {
-    warning(paste("No such variable ", name1, " found in the dataset."))
-    return(-1)
+    return(warning(sprintf("No such variable '%s' found in the dataset.", name1)))
   }
   if (!is.na(name2) && !(name2 %in% names(munich2019dataset))) {
-    warning(paste("No such variable ", name2, " found in the dataset."))
-    return(-1)
+    return(warning(sprintf("No such variable '%s' found in the dataset.", name2)))
   }
 
   if(is.na(name2)) {
@@ -84,10 +82,11 @@ plotMunich2019dataset <- function(name1, name2 = NA, savePath = NULL) {
   }
 
   if(!is.null(savePath)) {
-    savePlot(plot,
-             names = c("Munich2019datset", name1, name2),
-             savePath = savePath)
+    r <- savePlot(plot,
+                  names = c("Munich2019datset", name1, name2),
+                  savePath = savePath)
+    if(r != 0)
+      warning(sprintf("Plot saving canceled: %s", r))
   }
-
   return(plot)
 }
