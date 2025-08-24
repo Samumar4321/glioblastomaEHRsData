@@ -51,8 +51,8 @@ descriptiveTableUtrecht2019dataset <- function(savePath = NULL){
     status <- saveTable(t1,
                         names = c("Utrecht2019dataset") ,
                         savePath = savePath)
-    if(status == -1)
-      warning("Saving process interrupted, read the error above")
+    if(status != 0)
+      warning(sprintf("Saving process interrupted: %s", status))
   }
   return(t1)
 }
