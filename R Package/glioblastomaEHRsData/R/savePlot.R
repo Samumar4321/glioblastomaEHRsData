@@ -61,8 +61,7 @@ savePlot <- function(plot, names, savePath = "") {
     dir_path <- if(has_filename) dirname(savePath) else savePath
     #CHECK IF THE DIRECTORY EXISTS
     if(!dir.exists(dir_path)) {
-      warning("Specified directory does not exists, plot saving canceled.")
-      return(-1)
+      return(sprintf("Specified directory '%s' does not exists.", dir_path))
     }
 
     if (has_filename) {
@@ -70,6 +69,7 @@ savePlot <- function(plot, names, savePath = "") {
     } else {
       ggsave(filename = default_name, path = savePath, plot = plot)
     }
+    return(0)
     # if(has_filename){
     #   #CHECK IF THE DIRECTORY EXISTS
     #   if(!dir.exists(dirname(savePath))){

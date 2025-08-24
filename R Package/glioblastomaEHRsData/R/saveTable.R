@@ -95,8 +95,7 @@
 saveTable <- function(t1, names, savePath = "") {
   dataset <- names[1]
   if(is.na(dataset)) {
-    warning("Dataset not named")
-    return(-1)
+    return("Dataframe name not found")
   }
   default_name <- paste0(paste("table",
                                dataset,
@@ -105,24 +104,21 @@ saveTable <- function(t1, names, savePath = "") {
                                sep = "_"),
                          ".png")
 
-  if(is.null(savePath) || savePath == "") {
+  if(is.null(savePath) || savePath == "" || is.na(savePath)) {
     save_as_image(t1flex(t1), default_name)
     return(0)
   }
   else {
     has_filename <- grepl("\\.", basename(savePath))
-    if(has_filename){
+    if(has_filename) {
       # Check if the directory exists
       if(!dir.exists(dirname(savePath))){
-        warning("Specified directory does not exists")
-        return(-1)
+        return(sprintf("Specified directory '%s' does not exists", dirname(savePath)))
       }
-
       # Check the extension
       ext <- tools::file_ext(savePath)
       if(!grepl("^png$|^pdf$", ext)) {
-        warning("Invalid extension, please use .png or .pdf instead")
-        return(-1)
+        return("Invalid extension, please use .png or .pdf instead")
       }
 
       # Save using the input filename
@@ -144,11 +140,10 @@ t1
       }
       return(0)
     }
-    else{
+    else {
       # Check if the directory exists
       if(!dir.exists(savePath)) {
-        warning("Specified directory does not exists")
-        return(-1)
+        return(sprintf("Specified directory '%s' does not exists", savePath))
       }
       # Save in the path directory with default filename
       save_as_image(t1flex(t1), paste0(savePath, "/", default_name))
