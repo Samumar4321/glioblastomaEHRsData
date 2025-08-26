@@ -54,7 +54,7 @@ plotTainan2020dataset("TMZ_based_chemo_yes1_no0")
 # Bivariate plot without saving
 plotTainan2020dataset("PFS_months", "OS_months")
 
-## Not run
+\donttest{
 # Bivariate plot saved in the specified directory with the chosen name and extension
 plotTainan2020dataset("age_years", "chemo_yes1_no0", savePath = "plots/age_chemo_boxplot.png")
 
@@ -64,7 +64,7 @@ plotTainan2020dataset("PFS_months", "OS_months", savePath = "OSvsPFS_plot.pdf")
 # Bivariate plot saved in a path directory with default name and extension
 plotTainan2020dataset("PFS_months", "radiation_dose_Gy", savePath = "tainan_numerci_plots")
 
-## End(Not run)
+}
 
 }
 \seealso{

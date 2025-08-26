@@ -38,7 +38,7 @@
 #' # Bivariate plot without saving
 #' plotUtrecht2019dataset("post_surgery_therapy_none0_monotherapy1_RTandTMZ2", "OS_months")
 #'
-#' ## Not run
+#' \donttest{
 #' # Bivariate plot saved in the specified directory with the chosen name and extension
 #' plotUtrecht2019dataset("age_years", "KPS_less70.0_more70.1", savePath = "plots/age_KPS_boxplot.png")
 #'
@@ -48,7 +48,7 @@
 #' # Bivariate plot save in the path directory using the default name
 #' plotUtrecht2019dataset("survived_yes1_no0", savePath = "utrecht_plots")
 #'
-#' ## End(Not run)
+#' }
 #'
 #' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
 #' @importFrom ggplot2 labs

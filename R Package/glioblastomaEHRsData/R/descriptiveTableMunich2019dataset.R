@@ -1,12 +1,15 @@
 #' @md
 #' @title Descriptive statistics table for the munich2019dataset
 #'
-#' @description Function to create, display and optionally export a table containing descriptive statistics for the munich2019dataset.\cr
+#' @description Function to create, display and optionally export a table
+#' containing descriptive statistics for the munich2019dataset.\cr
 #' The table is created using the table1 package and is grouped by survival status.
 #'
-#' @param savePath Character (optional). String specifying the path and filename for exporting the table.
+#' @param savePath Character (optional). String specifying the path and filename
+#' for exporting the table.
 #'  - If NULL (default), the table will not be exported.
-#'  - If "" (empty string), the table will be saved in the working directory using a default name.
+#'  - If "" (empty string), the table will be saved in the working directory
+#'    using a default name.
 #'  - Expected format: 'filepath/filename.extensions' where:
 #'    - filepath is the directory (must already exist), default is the working directory;
 #'    - filename is the name of the file, default to 'table_munich2019dataset_timestamp.png';
@@ -20,7 +23,7 @@
 #' # Create and display the table, without saving anything
 #' descriptiveTableMunich2019dataset()
 #'
-#' ## Not run:
+#' \donttest{
 #' # Create, display and save the table giving a path, filename and extension
 #' descriptiveTableMunich2019dataset(savePath = "tables/munich_table.pdf")
 #'
@@ -29,8 +32,8 @@
 #'
 #' # Create, display and save the table giving a path and filename, default extension will be used
 #' descriptiveTableMunich2019dataset(savePath = "tables/munich_table")
+#' }
 #'
-#' ## End(Not run)
 #'
 #' @importFrom table1 table1
 #' @export

@@ -57,8 +57,10 @@
 #' @export
 Utrecht2019datasetDescriptiveStatistics <- function(show = "all"){
   # Identify variable types
-  cont_vars <- sapply(utrecht2019dataset, is.numeric)
-  cat_vars  <- sapply(utrecht2019dataset, function(x) is.factor(x) || is.character(x))
+  cont_vars <- vapply(utrecht2019dataset, is.numeric, FUN.VALUE = logical(1))
+  cat_vars  <- vapply(utrecht2019dataset,
+                      function(x) is.factor(x) || is.character(x),
+                      FUN.VALUE = logical(1))
 
   # Compute stats
   cont_stats <- NULL

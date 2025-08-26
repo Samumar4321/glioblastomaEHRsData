@@ -58,8 +58,10 @@
 Tainan2020datasetDescriptiveStatistics <- function(show = "all") {
 
   # Identify variable types
-  cont_vars <- sapply(tainan2020dataset, is.numeric)
-  cat_vars  <- sapply(tainan2020dataset, function(x) is.factor(x) || is.character(x))
+  cont_vars <- vapply(tainan2020dataset, is.numeric, FUN.VALUE = logical(1))
+  cat_vars  <- vapply(tainan2020dataset,
+                      function(x) is.factor(x) || is.character(x),
+                      FUN.VALUE = logical(1))
 
   # Compute stats
   cont_stats <- NULL

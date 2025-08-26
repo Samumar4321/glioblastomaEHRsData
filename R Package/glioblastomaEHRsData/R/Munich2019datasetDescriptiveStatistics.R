@@ -2,8 +2,8 @@
 #' @title Munich2019datasetDescriptiveStatistics
 #'
 #' @description Provides descriptive statistics for the 'munich2019dataset'.
-#'  It can display summary statistic for continuous variables, frequency tables for categorical variables
-#'  or both.
+#'  It can display summary statistic for continuous variables, frequency tables
+#'  for categorical variables or both.
 #'
 #'
 #' @param show character string for the type of statistic to show.
@@ -58,26 +58,31 @@
 #' @export
 Munich2019datasetDescriptiveStatistics <- function(show = "all"){
   # Identify variable types
-  cont_vars <- sapply(munich2019dataset, is.numeric)
-  cat_vars  <- sapply(munich2019dataset, function(x) is.factor(x) || is.character(x))
+  cont_vars <- vapply(munich2019dataset, is.numeric, FUN.VALUE = logical(1))
+  cat_vars  <- vapply(munich2019dataset,
+                      function(x) is.factor(x) || is.character(x),
+                      FUN.VALUE = logical(1))
 
   # Compute stats
   cont_stats <- NULL
   cat_stats  <- NULL
 
   if (any(cont_vars)) {
-    cont_stats <- summarytools::descr(munich2019dataset[, cont_vars, drop = FALSE])
+    cont_stats <- summarytools::descr(munich2019dataset[, cont_vars,
+                                                        drop = FALSE])
   }
 
   if (any(cat_vars)) {
-    cat_stats <- summarytools::freq(munich2019dataset[, cat_vars, drop = FALSE])
+    cat_stats <- summarytools::freq(munich2019dataset[, cat_vars,
+                                                      drop = FALSE])
   }
 
   # Return based on "show"
   result <- switch(show,
                    "continuous" = cont_stats,
                    "categorical" = cat_stats,
-                   "all" = list('continuous' = cont_stats, 'categorical' = cat_stats),
+                   "all" = list('continuous' = cont_stats,
+                                'categorical' = cat_stats),
                    warning("Invalid 'show' value, use one of 'all', 'categorical' or 'continuous'."))
 
   return(result)

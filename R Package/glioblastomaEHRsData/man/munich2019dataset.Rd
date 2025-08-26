@@ -21,8 +21,11 @@ A data frame with 60 rows and 8 variables:
 data(munich2019dataset)
 }
 \description{
-The dataset contains data from 60 patients, treatead at the 2 hospitals Klinikum rechts der Isar (TUM) and Klinikum Bogenhausen (STKM), Munich, Germany.\cr
-It focuses on the prognostic impact of cytosolic Hsp70 (cHsp70) expression and MGMT promoter methylation status.
+The dataset contains data from 60 patients, treatead at the 2 hospitals
+Klinikum rechts der Isar (TUM) and Klinikum Bogenhausen (STKM),
+Munich, Germany.\cr
+It focuses on the prognostic impact of cytosolic Hsp70 (cHsp70) expression
+and MGMT promoter methylation status.
 }
 \examples{
 data(munich2019dataset)

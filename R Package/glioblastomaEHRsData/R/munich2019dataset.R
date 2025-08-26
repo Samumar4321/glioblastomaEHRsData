@@ -1,7 +1,10 @@
 #' EHR data of patients affected by Glioblastoma (GBM), collected from Munich, Germany.
 #'
-#' The dataset contains data from 60 patients, treatead at the 2 hospitals Klinikum rechts der Isar (TUM) and Klinikum Bogenhausen (STKM), Munich, Germany.\cr
-#' It focuses on the prognostic impact of cytosolic Hsp70 (cHsp70) expression and MGMT promoter methylation status.
+#' The dataset contains data from 60 patients, treated at the 2 hospitals
+#' Klinikum rechts der Isar (TUM) and Klinikum Bogenhausen (STKM),
+#' Munich, Germany.\cr
+#' It focuses on the prognostic impact of cytosolic Hsp70 (cHsp70) expression
+#' and MGMT promoter methylation status.
 #'
 #' @docType data
 #' @name munich2019dataset

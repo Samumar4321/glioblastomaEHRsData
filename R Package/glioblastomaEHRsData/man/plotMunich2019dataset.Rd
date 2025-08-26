@@ -54,7 +54,7 @@ plotMunich2019dataset("age_years")
 # Bivariate plot without saving
 plotMunich2019dataset("cHsp70_low0_high1", "sex_male0_female1")
 
-## Not run
+\donttest{
 # Bivariate plot saved in the path directory with the chosen name and extension
 plotMunich2019dataset("age_years", "sex_male0_female1", savePath = "plots/age_sex_boxplot.png")
 
@@ -64,7 +64,7 @@ plotMunich2019dataset("sex_male0_female1", savePath = "gender_boxplot.jpeg")
 # Univariate plot saved in the path directory with default name and extension
 plotMunich2019dataset("MGMTmethylation_methylated1_unmethylated0", savePath = "munichPlots")
 
-## End(Not run)
+}
 
 }
 \seealso{

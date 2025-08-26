@@ -7,7 +7,8 @@
 descriptiveTableUtrecht2019dataset(savePath = NULL)
 }
 \arguments{
-\item{savePath}{Character (optional). String specifying the path and filename for exporting the table.
+\item{savePath}{Character (optional). String specifying the path and filename
+for exporting the table.
 \itemize{
 \item If NULL (default), the table will not be exported.
 \item If "" (empty string), the table will be saved in the working directory using a default name.
@@ -23,14 +24,15 @@ descriptiveTableUtrecht2019dataset(savePath = NULL)
 A 'table1' object containing descriptive statistics grouped by survival status.
 }
 \description{
-Function to create, display and optionally export a table containing descriptive statistics for the utrecht2019dataset\cr
+Function to create, display and optionally export a table
+containing descriptive statistics for the utrecht2019dataset\cr
 The table is created using the table1 package and is grouped by survival status.
 }
 \examples{
 # Create and display the table, without saving anything
 descriptiveTableUtrecht2019dataset()
 
-## Not run:
+\donttest{
 # Create, display and save the table giving a path, filename and extension
 descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_table.pdf")
 
@@ -40,7 +42,7 @@ descriptiveTableUtrecht2019dataset(savePath = "tables/")
 # Create, display and save the table giving a path and filename,default extension will be used
 descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_table")
 
-## End(Not run)
+}
 
 }
 \seealso{

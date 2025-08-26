@@ -7,10 +7,12 @@
 descriptiveTableMunich2019dataset(savePath = NULL)
 }
 \arguments{
-\item{savePath}{Character (optional). String specifying the path and filename for exporting the table.
+\item{savePath}{Character (optional). String specifying the path and filename
+for exporting the table.
 \itemize{
 \item If NULL (default), the table will not be exported.
-\item If "" (empty string), the table will be saved in the working directory using a default name.
+\item If "" (empty string), the table will be saved in the working directory
+using a default name.
 \item Expected format: 'filepath/filename.extensions' where:
 \itemize{
 \item filepath is the directory (must already exist), default is the working directory;
@@ -23,14 +25,15 @@ descriptiveTableMunich2019dataset(savePath = NULL)
 A 'table1' object containing descriptive statistics grouped by survival status.
 }
 \description{
-Function to create, display and optionally export a table containing descriptive statistics for the munich2019dataset.\cr
+Function to create, display and optionally export a table
+containing descriptive statistics for the munich2019dataset.\cr
 The table is created using the table1 package and is grouped by survival status.
 }
 \examples{
 # Create and display the table, without saving anything
 descriptiveTableMunich2019dataset()
 
-## Not run:
+\donttest{
 # Create, display and save the table giving a path, filename and extension
 descriptiveTableMunich2019dataset(savePath = "tables/munich_table.pdf")
 
@@ -39,8 +42,8 @@ descriptiveTableMunich2019dataset(savePath = "tables/")
 
 # Create, display and save the table giving a path and filename, default extension will be used
 descriptiveTableMunich2019dataset(savePath = "tables/munich_table")
+}
 
-## End(Not run)
 
 }
 \seealso{

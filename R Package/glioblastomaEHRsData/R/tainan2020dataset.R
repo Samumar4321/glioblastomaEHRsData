@@ -27,7 +27,8 @@
 #'  \item{tumorProgression_no0_yes1}{Factor. "No" (0) or "Yes" (1) for tumor progression after the initial treatment.}
 #'  \item{year_of_diagnosis_05to10_0_10to16_1}{Factor. "2005-2010" (0) or "2010-2016" (1) for the year of diagnosis.}
 #' }
-#'@references
+#'
+#' @references
 #' Li-Tsun Shieh, How-Ran Guo, Chung-Han Ho et al. (2020).
 #' Survival of glioblastoma treated with a moderately escalated radiation dose—Results of a retrospective analysis.
 #' PMID: 32413077.
@@ -35,6 +36,7 @@
 #' https://doi.org/10.1371/journal.pone.0233188
 #'
 #' @keywords datasets
+#'
 #' @examples
 #'
 #' data(tainan2020dataset)
