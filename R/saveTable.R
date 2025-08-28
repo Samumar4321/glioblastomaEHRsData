@@ -129,6 +129,10 @@ saveTable <- function(t1, names, savePath = "") {
 output: pdf_document
 ---
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
 ```{r show-flextable, echo=FALSE, result="asis"}
 t1
 ```
