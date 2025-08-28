@@ -16,7 +16,7 @@ for exporting the table.
 \itemize{
 \item filepath is the directory (must already exist), default is the working directory;
 \item filename is the name of the file, default to 'table_utrecht2019dataset_timestamp.png';
-\item extension must be one of png or pdf and must be specified, unless using the default filename.
+\item extension must be one of png, pdf or html and must be specified, unless using the default filename.
 }
 }}
 }
@@ -33,6 +33,9 @@ The table is created using the table1 package and is grouped by survival status.
 descriptiveTableUtrecht2019dataset()
 
 \donttest{
+# Create, display and save the table giving a path, filename and extension
+descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_web_table.html")
+
 # Create, display and save the table giving a path, filename and extension
 descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_table.pdf")
 
