@@ -107,39 +107,37 @@ saveTable <- function(t1, names, savePath = "") {
                          ".png")
 
   if(is.null(savePath) || savePath == "" || is.na(savePath)) {
-    save_as_image(t1flex(t1), default_name)
+    savePath <- default_name
     return(0)
   }
-  else {
-    has_filename <- grepl("\\.", basename(savePath))
-    if(has_filename) {
-      # Check if the directory exists
-      if(!dir.exists(dirname(savePath))){
-        return(sprintf("Specified directory '%s' does not exists", dirname(savePath)))
-      }
-      # Check the extension
-      ext <- tools::file_ext(savePath)
-      if(!grepl("^png$|^pdf$|^html$", ext)) {
-        return("Invalid extension, please use .png or .pdf instead")
-      }
 
-      # Save using the input filename
-      if(ext == "pdf") {
-        cat('
+  savePath <- normalizePath(savePath, mustWork = FALSE)
+  save_dir <- dirname(savePath)
+
+  if(!dir.exists(dirname(savePath))){
+    return(sprintf("Specified directory '%s' does not exists", savePath))
+  }
+
+  # Check the extension
+  ext <- tools::file_ext(savePath)
+  if(!grepl("^png$|^pdf$|^html$", ext)) {
+    return("Invalid extension, please use .png, .pdf or .html instead")
+  }
+
+  if (ext %in% c("pdf", "html")) {
+    tempfile <- tempfile(fileext = ".Rmd")
+    if(ext == 'pdf') {
+      rmd_content <- sprintf('
 ---
 output: pdf_document
+---
 
-```{r show-tableone, echo=FALSE, result="asis"}
+```{r show-tableone, echo=FALSE, results="asis"}
 t1
-```
-', file = "table1.Rmd")
-        rmarkdown::render("table1.Rmd",
-                          output_file = savePath,
-                          output_format = 'pdf_document')
-        file.remove("table1.Rmd")
-      }
-      else if (ext == "html") {
-        cat(sprintf('
+
+')
+    } else if (ext == "html") {
+      rmd_content <- sprintf('
 ---
 title: "Descriptive %s Table"
 output: html_document
@@ -148,25 +146,18 @@ output: html_document
 ```{r show-tableone, echo=FALSE, result="asis"}
 t1
 ```
-', file = "table1.Rmd", names[1]))
-        rmarkdown::render("table1.Rmd",
-                          output_file = savePath,
-                          output_format = 'html_document')
-        file.remove("table1.Rmd")
-      }
-      else if (ext == "png") {
-        save_as_image(t1flex(t1), savePath)
-      }
-      return(0)
+', names[1])
     }
-    else {
-      # Check if the directory exists
-      if(!dir.exists(savePath)) {
-        return(sprintf("Specified directory '%s' does not exists", savePath))
-      }
-      # Save in the path directory with default filename
-      save_as_image(t1flex(t1), paste0(savePath, "/", default_name))
-      return(0)
-    }
+    cat(rmd_content, file = tempfile)
+
+    rmarkdown::render(input = tempfile,
+                      output_file = savePath,
+                      output_format = ifelse(ext == 'html', 'html_document', 'pdf_document'),
+                      clean = TRUE)
+
+    file.remove(tempfile)
+  } else if (ext == 'png') {
+    save_as_image(t1flex(t1), savePath)
   }
+  return(0)
 }
