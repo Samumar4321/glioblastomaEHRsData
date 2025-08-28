@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 [![Rhub](https://github.com/Samumar4321/glioblastomaEHRsData/actions/workflows/rhub.yaml/badge.svg)](https://github.com/Samumar4321/glioblastomaEHRsData/actions/workflows/rhub.yaml)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ggplot2)](https://cran.r-project.org/package=ggplot2)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/glioblastomaEHRsData)](https://cran.r-project.org/package=glioblastomaEHRsData)
 <!-- badges: end -->
 
 R package for generating descriptive statistics in forms of tables and plots for 3 specific datasets containing information about patients suffering from Glioblastoma Multiforme (GM).
