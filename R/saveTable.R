@@ -139,16 +139,16 @@ t1
         file.remove("table1.Rmd")
       }
       else if (ext == "html") {
-        cat('
+        cat(sprintf('
 ---
-title: "Descriptive Table"
+title: "Descriptive %s Table"
 output: html_document
 ---
 
 ```{r show-tableone, echo=FALSE, result="asis"}
 t1
 ```
-', file = "table1.Rmd")
+', file = "table1.Rmd", names[1]))
         rmarkdown::render("table1.Rmd",
                           output_file = savePath,
                           output_format = 'html_document')
