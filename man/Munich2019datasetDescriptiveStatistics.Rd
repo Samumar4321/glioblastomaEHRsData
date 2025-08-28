@@ -28,7 +28,7 @@ the second is a list for categorical variables.
 \description{
 Provides descriptive statistics for the 'munich2019dataset'.
 It can display summary statistic for continuous variables, frequency tables
-for categorical variablesor both.
+for categorical variables or both.
 }
 \examples{
   # Show both continuous and categorical stats

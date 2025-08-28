@@ -16,7 +16,7 @@
 #'  \item{cHsp70_low0_high1}{Factor. "Low" (0) or "High" (1) cytosolic Hsp70 expression.}
 #'  \item{MGMTmethylation_methylated1_unmethylated0}{Factor "unmethylated" (0) or "methylated" (1) MGMT promoter.}
 #'  \item{OS_months}{Numeric. Overall survival in months.}
-#'  \item{PFS_monhts}{Numeric. Progression-free survival in months.}
+#'  \item{PFS_months}{Numeric. Progression-free survival in months.}
 #'  \item{sex_male0_female1}{Factor. "Male" (0) or "Female" (1).}
 #'  \item{survived_yes1_no0}{Factor. "Dead" (0) or "Alive" (1) at their most recent check-up.}
 #'  \item{tumor_progression_yes1_no0}{Factor. "No" (0) or "Yes" (1) for tumor progression after treatment.}

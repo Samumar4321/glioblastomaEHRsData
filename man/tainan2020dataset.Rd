@@ -10,7 +10,7 @@ A data frame with 84 rows and 12 variables:
  \item{age_years}{Numeric. Patient's age.}
  \item{chemo_yes1_no0}{Factor. "No" (0) or "Yes" (1) for chemotherapy.}
  \item{OS_months}{Numeric. Overall Survival expressed in months.}
- \item{PFS_monhts}{Numeric. Progress Free Survival expressed in months.}
+ \item{PFS_months}{Numeric. Progress Free Survival expressed in months.}
  \item{radiation_dose_Gy}{Numeric. Radiation dose used in chemotherapy expressed in Gy.}
  \item{radiation_volume_mL}{Numeric. Radiation volume used in chemotherapy expressed in mL.}
  \item{sex_male0_female1}{Factor. "Male" (0) or "Female" (1).}

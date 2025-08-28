@@ -28,6 +28,7 @@
 #' @importFrom table1 t1flex
 #' @importFrom flextable save_as_image
 #' @importFrom rmarkdown render
+#' @import tinytex
 #'
 #' @keywords internal
 
