@@ -128,11 +128,6 @@ saveTable <- function(t1, names, savePath = "") {
         cat('
 ---
 output: pdf_document
----
-
-```{r, include=FALSE}
-options(tinytex.verbose = TRUE)
-```
 
 ```{r show-tableone, echo=FALSE, result="asis"}
 t1
@@ -146,12 +141,9 @@ t1
       else if (ext == "html") {
         cat('
 ---
+title: "Descriptive Table"
 output: html_document
 ---
-
-```{r, include=FALSE}
-options(tinytex.verbose = TRUE)
-```
 
 ```{r show-tableone, echo=FALSE, result="asis"}
 t1
