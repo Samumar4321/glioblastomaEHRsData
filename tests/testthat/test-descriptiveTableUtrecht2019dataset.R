@@ -6,7 +6,7 @@ test_that("descriptiveTableUtrecht2019dataset() return a tabe1 object without sa
   expect_s3_class(t1, c("table1", "character"))
 })
 
-test_that("descriptiveTableUtrecht2019dataset(savePath = 'images/utrecht_test_table.png') return a table1 object and save a file", {
+test_that("descriptiveTableUtrecht2019dataset(savePath = 'images/utrecht_test_table.png') return a table1 object and save a png file", {
   path <- testthat::test_path("images", "utrecht_test_table.png")
   dir.create(dirname(path), showWarnings = FALSE, recursive = TRUE)
   t1 <- descriptiveTableUtrecht2019dataset(savePath = path)
@@ -14,7 +14,15 @@ test_that("descriptiveTableUtrecht2019dataset(savePath = 'images/utrecht_test_ta
   expect_true(file.exists(path))
 })
 
-test_that("descriptiveTableUtrecht2019dataset(savePath = 'utrecht_test_table.pdf') return a table1 object and save a file", {
+test_that("descriptiveTableUtrecht2019dataset(savePath = 'utrecht_test_table.html') return a table1 object and save a html file", {
+  path <- testthat::test_path("", "utrecht_test_table.html")
+  t1 <- descriptiveTableUtrecht2019dataset(savePath = path)
+  expect_s3_class(t1, c("table1", "character"))
+  expect_true(file.exists(path))
+})
+
+test_that("descriptiveTableUtrecht2019dataset(savePath = 'utrecht_test_table.pdf') return a table1 object and save a pdf file", {
+  skip_on_cran(message = "CRAN does not have an extensive LaTex engine.")
   path <- testthat::test_path("", "utrecht_test_table.pdf")
   t1 <- descriptiveTableUtrecht2019dataset(savePath = path)
   expect_s3_class(t1, c("table1", "character"))

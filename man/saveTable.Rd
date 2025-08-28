@@ -17,14 +17,14 @@ The format must be: 'filepath/filename.extension' where:
 \itemize{
 \item filepath is the directory (must already exist), default to the working directory;
 \item filename is the name of the file, default to default_filename;
-\item extension must be one of 'png', or 'pdf', must exists unless using the default file name.
+\item extension must be one of 'png', 'pdf' or 'html, must exists unless using the default file name.
 }}
 }
 \value{
-A status number, 0 if the save was successfull, -1 if there were errors.
+0 if the save was successfull, or a warning message if there were errors.
 }
 \description{
-Internal function to save a table1 table object in png or pdf format.
+Internal function to save a table1 table object in png, pdf or html format.
 Default extension is png, default_filename is in this format: 'table_dataset_timestamp.png'.
 }
 \details{

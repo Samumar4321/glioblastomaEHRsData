@@ -12,7 +12,7 @@
 #'  - Expected format: 'filepath/filename.extensions' where:
 #'    - filepath is the directory (must already exist), default is the working directory;
 #'    - filename is the name of the file, default to 'table_utrecht2019dataset_timestamp.png';
-#'    - extension must be one of png or pdf and must be specified, unless using the default filename.
+#'    - extension must be one of png, pdf or html and must be specified, unless using the default filename.
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
 #'
@@ -23,6 +23,9 @@
 #' descriptiveTableUtrecht2019dataset()
 #'
 #' \donttest{
+#' # Create, display and save the table giving a path, filename and extension
+#' descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_web_table.html")
+#'
 #' # Create, display and save the table giving a path, filename and extension
 #' descriptiveTableUtrecht2019dataset(savePath = "tables/utrecht_table.pdf")
 #'

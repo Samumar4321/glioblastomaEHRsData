@@ -13,7 +13,7 @@
 #'  - Expected format: 'filepath/filename.extensions' where:
 #'    - filepath is the directory (must already exist), default is the working directory;
 #'    - filename is the name of the file, default to 'table_munich2019dataset_timestamp.png';
-#'    - extension must be one of png or pdf and must be specified, unless using the default filename.
+#'    - extension must be one of png, pdf html and must be specified, unless using the default filename.
 #'
 #' @return A 'table1' object containing descriptive statistics grouped by survival status.
 #'
@@ -24,6 +24,9 @@
 #' descriptiveTableMunich2019dataset()
 #'
 #' \donttest{
+#' # Create, display and save the table giving a path, filename and extension
+#' descriptiveTableMunich2019dataset(savePath = "tables/munich_web_table.html")
+#'
 #' # Create, display and save the table giving a path, filename and extension
 #' descriptiveTableMunich2019dataset(savePath = "tables/munich_table.pdf")
 #'

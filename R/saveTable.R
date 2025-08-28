@@ -1,7 +1,7 @@
 #' @md
 #' @title saveTable
 #'
-#' @description Internal function to save a table1 table object in png or pdf format.
+#' @description Internal function to save a table1 table object in png, pdf or html format.
 #' Default extension is png, default_filename is in this format: 'table_dataset_timestamp.png'.
 #'
 #' @details
@@ -18,10 +18,10 @@
 #' The format must be: 'filepath/filename.extension' where:
 #'   - filepath is the directory (must already exist), default to the working directory;
 #'   - filename is the name of the file, default to default_filename;
-#'   - extension must be one of 'png', or 'pdf', must exists unless using the default file name.
+#'   - extension must be one of 'png', 'pdf' or 'html, must exists unless using the default file name.
 #'
 #'
-#' @return A status number, 0 if the save was successfull, -1 if there were errors.
+#' @return 0 if the save was successfull, or a warning message if there were errors.
 #'
 #' @seealso This internal functions is used by: [descriptiveTableMunich2019dataset()], [descriptiveTableTainan2020dataset()] and [descriptiveTableUtrecht2019dataset()]
 #'
@@ -119,7 +119,7 @@ saveTable <- function(t1, names, savePath = "") {
       }
       # Check the extension
       ext <- tools::file_ext(savePath)
-      if(!grepl("^png$|^pdf$", ext)) {
+      if(!grepl("^png$|^pdf$|^html$", ext)) {
         return("Invalid extension, please use .png or .pdf instead")
       }
 
@@ -134,11 +134,32 @@ output: pdf_document
 options(tinytex.verbose = TRUE)
 ```
 
-```{r show-flextable, echo=FALSE, result="asis"}
+```{r show-tableone, echo=FALSE, result="asis"}
 t1
 ```
 ', file = "table1.Rmd")
-        rmarkdown::render("table1.Rmd", output_file = savePath)
+        rmarkdown::render("table1.Rmd",
+                          output_file = savePath,
+                          output_format = 'pdf_document')
+        file.remove("table1.Rmd")
+      }
+      else if (ext == "html") {
+        cat('
+---
+output: html_document
+---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r show-tableone, echo=FALSE, result="asis"}
+t1
+```
+', file = "table1.Rmd")
+        rmarkdown::render("table1.Rmd",
+                          output_file = savePath,
+                          output_format = 'html_document')
         file.remove("table1.Rmd")
       }
       else if (ext == "png") {
