@@ -47,7 +47,6 @@
 #'
 #' # Bivariate plot save in the path directory using the default name
 #' plotUtrecht2019dataset("survived_yes1_no0", savePath = "utrecht_plots")
-#'
 #' }
 #'
 #' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot

@@ -47,7 +47,6 @@
 #'
 #' # Univariate plot saved in the path directory with default name and extension
 #' plotMunich2019dataset("MGMTmethylation_methylated1_unmethylated0", savePath = "munichPlots")
-#'
 #' }
 #'
 #' @importFrom ggplot2 labs

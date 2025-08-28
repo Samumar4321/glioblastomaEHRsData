@@ -47,7 +47,6 @@
 #'
 #' # Bivariate plot saved in a path directory with default name and extension
 #' plotTainan2020dataset("PFS_months", "radiation_dose_Gy", savePath = "tainan_numerci_plots")
-#'
 #' }
 #'
 #' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot
