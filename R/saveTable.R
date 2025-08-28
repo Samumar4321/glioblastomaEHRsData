@@ -108,7 +108,9 @@ saveTable <- function(t1, names, savePath = "") {
 
   if(is.null(savePath) || savePath == "" || is.na(savePath)) {
     savePath <- default_name
-    return(0)
+  }
+  else if(!grepl("\\.", basename(savePath))) {
+    savePath <- file.path(savePath, default_name)
   }
 
   savePath <- normalizePath(savePath, mustWork = FALSE)

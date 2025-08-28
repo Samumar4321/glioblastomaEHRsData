@@ -81,7 +81,7 @@ plotMunich2019dataset <- function(name1, name2 = NA, savePath = NA) {
     }
   }
 
-  if(!is.null(savePath)) {
+  if(!is.na(savePath)) {
     r <- savePlot(plot,
                   names = c("Munich2019datset", name1, name2),
                   savePath = savePath)

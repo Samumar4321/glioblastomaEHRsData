@@ -51,46 +51,20 @@ savePlot <- function(plot, names, savePath = "") {
                            ".png")
   }
 
-  if(is.na(savePath) || savePath == "") {
-    #SAVE WITH DEFAULT NAME
-    ggsave(filename = default_name, plot = plot)
-    return(0)
+  if(is.null(savePath) || savePath == "" || is.na(savePath)) {
+    savePath <- default_name
   }
-  else {
-    has_filename <- grepl("\\.", basename(savePath))
-    dir_path <- if(has_filename) dirname(savePath) else savePath
-    #CHECK IF THE DIRECTORY EXISTS
-    if(!dir.exists(dir_path)) {
-      return(sprintf("Specified directory '%s' does not exists.", dir_path))
-    }
+  else if(!grepl("\\.", basename(savePath))) {
+    savePath <- file.path(savePath, default_name)
+  }
 
-    if (has_filename) {
-      ggsave(filename = basename(savePath), path = dir_path, plot = plot)
-    } else {
-      ggsave(filename = default_name, path = savePath, plot = plot)
-    }
-    return(0)
-    # if(has_filename){
-    #   #CHECK IF THE DIRECTORY EXISTS
-    #   if(!dir.exists(dirname(savePath))){
-    #     warning("Specified directory does not exists, plot saving canceled.")
-    #     return(-1)
-    #   }
-    #   #SAVE IN THE SPECIFIED DIRECTORY WITH THE FILENAME (
-    #   #both dir and filename were specified in savePath)
-    #   ggsave(path = dirname(savePath), filename = basename(savePath), plot = plot)
-    #   return(0)
-    # }
-    # else{
-    #   #CHECK IF THE DIRECTORY EXISTS
-    #   if(!dir.exists(savePath)) {
-    #     warning("Specified directory does not exists, plot saving canceled.")
-    #     return(-1)
-    #   }
-    #   #SAVE IN THE SPECIFIED DIRECTORY WITH THE DEFAULT FILENAME
-    #   #(only the dir was specified in savePath)
-    #   ggsave(path = savePath, filename = default_name, plot = plot)
-    #   return(0)
-    # }
+  savePath <- normalizePath(savePath, mustWork = FALSE)
+  save_dir <- dirname(savePath)
+
+  if(!dir.exists(dirname(savePath))){
+    return(sprintf("Specified directory '%s' does not exists", savePath))
   }
+
+  ggsave(filename = basename(savePath), path = save_dir, plot = plot)
+  return(0)
 }

@@ -14,7 +14,8 @@ test_that("plotTainan2020dataset('age_years', 'var2') gives an error because the
 })
 
 test_that("plotTainan2020dataset('age_years', 'OS_months', 'plots') gives the error 'Directory not found' but returns the plot", {
-  expect_warning(plot <- plotTainan2020dataset('age_years', 'OS_months', 'plots'))
+  path <- file.path(tempdir(), 'plots')
+  expect_warning(plot <- plotTainan2020dataset('age_years', 'OS_months', path))
   expect_s3_class(plot, c('gg', 'ggplot'))
 })
 
@@ -29,18 +30,19 @@ test_that("plotTainan2020dataset('chemo_yes1_no0') returns the 1D bar plot", {
 })
 
 test_that("plotTainan2020dataset('age_years', 'OS_months', 'tainan_plot.pdf') returns and save the 2D boxplot plot in the working dir", {
-  expect_no_warning(plot <- plotTainan2020dataset('age_years', 'OS_months', 'tainan_plot.pdf'))
+  path <- file.path(tempdir(), 'tainan_plot.pdf')
+  expect_no_warning(plot <- plotTainan2020dataset('age_years', 'OS_months', path))
   expect_s3_class(plot, c('gg', 'ggplot'))
 })
 
-test_that("plotTainan2020dataset('chemo_yes1_no0', 'OS_months', 'images') returns and save the 2D boxplot plot with the user's name", {
-  path <- testthat::test_path("images", "2dOSvsChemo.png")
+test_that("plotTainan2020dataset('chemo_yes1_no0', 'OS_months', 'images/2dOSvsChemo.png') returns and save the 2D boxplot plot with the user's name", {
+  path <- file.path(tempdir(), 'images/2dOSvsChemo.png')
   dir.create(dirname(path), showWarnings = FALSE, recursive = TRUE)
   expect_no_warning(plot <- plotTainan2020dataset('chemo_yes1_no0', 'OS_months', path))
   expect_s3_class(plot, c('gg', 'ggplot'))
 })
 
-test_that("plotTainan2020dataset('chemo_yes1_no0', 'TMZ_based_chemo_yes1_no0') returns and save the 2D bar plot", {
+test_that("plotTainan2020dataset('chemo_yes1_no0', 'TMZ_based_chemo_yes1_no0') returns the 2D bar plot", {
   expect_no_warning(plot <- plotTainan2020dataset('chemo_yes1_no0', 'TMZ_based_chemo_yes1_no0'))
   expect_s3_class(plot, c('gg', 'ggplot'))
 })
