@@ -8,7 +8,7 @@ test_that("descriptiveTableTainan2020dataset() return a tabe1 object without sav
 
 test_that("descriptiveTableTainan2020dataset(savePath = 'tables/') return a table1 object and save a png file", {
   path <- file.path(paste0(tempdir(), '/tables'), "")
-  dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
+  dir.create(path, recursive = TRUE, showWarnings = FALSE)
   t1 <- descriptiveTableTainan2020dataset(savePath = path)
   expect_s3_class(t1, c("table1", "character"))
   expect_true(file.exists(path))
@@ -16,6 +16,7 @@ test_that("descriptiveTableTainan2020dataset(savePath = 'tables/') return a tabl
 
 test_that("descriptiveTableTainan2020dataset(savePath = 'tables/tainan_test_table.html') return a table1 object and save a html file", {
   path <- file.path(tempdir(), "tables/tainan_test_table.html")
+  dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
   t1 <- descriptiveTableTainan2020dataset(savePath = path)
   expect_s3_class(t1, c("table1", "character"))
   expect_true(file.exists(path))
