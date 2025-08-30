@@ -63,7 +63,6 @@ plotMunich2019dataset("sex_male0_female1", savePath = "gender_boxplot.jpeg")
 
 # Univariate plot saved in the path directory with default name and extension
 plotMunich2019dataset("MGMTmethylation_methylated1_unmethylated0", savePath = "munichPlots")
-
 }
 
 }

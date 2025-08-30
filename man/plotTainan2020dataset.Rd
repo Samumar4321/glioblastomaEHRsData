@@ -63,7 +63,6 @@ plotTainan2020dataset("PFS_months", "OS_months", savePath = "OSvsPFS_plot.pdf")
 
 # Bivariate plot saved in a path directory with default name and extension
 plotTainan2020dataset("PFS_months", "radiation_dose_Gy", savePath = "tainan_numerci_plots")
-
 }
 
 }

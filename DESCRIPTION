@@ -1,6 +1,6 @@
 Package: glioblastomaEHRsData
 Type: Package
-Title: Descriptive analisys on 3 EHRs datasets
+Title: Descriptive Analisys on 3 EHRs Datasets
 Version: 0.1.0
 Authors@R: c(
     person(
@@ -19,7 +19,7 @@ LazyData: true
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
-Imports: DataExplorer, summarytools, table1, flextable, ggplot2, rmarkdown, tinytex, ragg
+Imports: DataExplorer, summarytools, table1, flextable, ggplot2, rmarkdown, tinytex
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0), ragg
 Config/testthat/edition: 3

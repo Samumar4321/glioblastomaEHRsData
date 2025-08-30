@@ -63,7 +63,6 @@ plotUtrecht2019dataset("survived_yes1_no0", savePath = "survival_plot.png")
 
 # Bivariate plot save in the path directory using the default name
 plotUtrecht2019dataset("survived_yes1_no0", savePath = "utrecht_plots")
-
 }
 
 }
