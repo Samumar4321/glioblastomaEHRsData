@@ -19,7 +19,7 @@ LazyData: true
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
-Imports: DataExplorer, summarytools, table1, flextable, ggplot2, rmarkdown, tinytex
+Imports: DataExplorer, summarytools, table1, flextable, ggplot2, rmarkdown, tinytex, ragg
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
