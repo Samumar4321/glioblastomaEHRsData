@@ -8,6 +8,13 @@
 #' bivariate plots.
 #' The package is designed to work with the included datasets and to facilitate
 #' quick exploratory data analysis and reporting.
+#' More information about these three datasets of EHRs of patients with glioblastoma
+#' can be found in this article:
+#' Gabriel Cerono, Ombretta Melaiu, and Davide Chicco, "Clinical feature ranking
+#' based on ensemble machine learning reveals top survival factors for
+#' glioblastoma multiforme",
+#' Journal of Healthcare Informatics Research 8, 1–18 (March 2024).
+#' <10.1007/s41666-023-00138-1>.
 #'
 #' @keywords internal
 "_PACKAGE"

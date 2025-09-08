@@ -6,8 +6,21 @@
 \alias{glioblastomaEHRsData-package}
 \title{glioblastomaEHRsData: Descriptive analysis on 3 EHRs datasets}
 \description{
-Il pacchetto fornisce dataset e funzioni per generare statistiche descrittive,
-tabelle di frequenza, riepiloghi e grafici, facilitando l’analisi esplorativa.
+Provides functions to load and analyze three open Electronic Health
+Records (EHRs) datasets of patients diagnosed with glioblastoma,
+previously released under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+Users can generate basic descriptive statistics, frequency tables and
+save descriptive summary table, as well as create and export univariate or
+bivariate plots.
+The package is designed to work with the included datasets and to facilitate
+quick exploratory data analysis and reporting.
+More information about these three datasets of EHRs of patients with glioblastoma
+can be found in this article:
+Gabriel Cerono, Ombretta Melaiu, and Davide Chicco, "Clinical feature ranking
+based on ensemble machine learning reveals top survival factors for
+glioblastoma multiforme",
+Journal of Healthcare Informatics Research 8, 1–18 (March 2024).
+<10.1007/s41666-023-00138-1>.
 }
 \author{
 \strong{Maintainer}: Samuele Marelli \email{samu2003.marelli@gmail.com}
