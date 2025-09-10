@@ -25,5 +25,10 @@ Journal of Healthcare Informatics Research 8, 1–18 (March 2024).
 \author{
 \strong{Maintainer}: Samuele Marelli \email{samu2003.marelli@gmail.com}
 
+Authors:
+\itemize{
+  \item Davide Chicco \email{davide.chicco@gmail.com}
+}
+
 }
 \keyword{internal}

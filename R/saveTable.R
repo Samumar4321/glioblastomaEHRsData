@@ -32,68 +32,6 @@
 #'
 #' @keywords internal
 
-# saveTable <- function(t1, names, savePath = "") {
-#   dataset <- names[1]
-#   if(is.na(dataset)) {
-#     stop("Dataset not named")
-#   }
-#   default_name <- paste0(paste("table",
-#                                dataset,
-#                                Sys.Date(),
-#                                format(Sys.time(), "%Hh%Mm%Ss"),
-#                                sep = "_"),
-#                          ".png")
-#
-#   if(is.null(savePath) || savePath == "") {
-#     save_as_image(t1flex(t1), default_name)
-#     return(0)
-#   }
-#   else {
-#     has_filename <- grepl("\\.", basename(savePath))
-#     if(has_filename){
-#       #CONTROLLA CHE LA DIR ESISTA
-#       if(!dir.exists(dirname(savePath))){
-#         stop("Specified directory does not exists")
-#         return(-1)
-#       }
-#
-#       #CONTROLLA CHE ABBIA GIUSTA ESTENSIONE
-#       ext <- tools::file_ext(savePath)
-#       if(!grepl("^svg$|^png$|^pdf$", ext)) {
-#         stop("Invalid extension, please use .svg, .png or .pdf instead")
-#         return(-1)
-#       }
-#
-#       html_code <- as.character(t1)
-#       tmp_html <- tempfile(fileext = ".html")
-#       htmltools::save_html(htmltools::HTML(html_code), tmp_html)
-#
-#       #SALVA CON FILENAME UTENTE
-#       if(ext == "pdf") {
-#         webshot(tmp_html, file = savePath, selector = "table", delay = 0.5)
-#       }
-#       else if (ext == "png") {
-#         webshot(tmp_html, file = savePath, selector = "table", delay = 0.5)
-#       }
-#       else if (ext == "svg") {
-#         save_as_image(t1flex(t1), savePath)
-#       }
-#       return(0)
-#     }
-#     else{
-#       #CONTROLLA CHE LA DIR ESISTA
-#       if(!dir.exists(savePath)) {
-#         stop("Specified directory does not exists")
-#         return(-1)
-#       }
-#       #SALVA NELLA DIR CON DEFAULTNAME
-#       save_as_image(t1flex(t1), paste0(savePath, "/", default_name))
-#       return(0)
-#     }
-#   }
-# }
-
-
 saveTable <- function(t1, names, savePath = "") {
   dataset <- names[1]
   if(is.na(dataset)) {
@@ -129,6 +67,9 @@ saveTable <- function(t1, names, savePath = "") {
   if (ext %in% c("pdf", "html")) {
     tempfile <- tempfile(fileext = ".Rmd")
     if(ext == 'pdf') {
+      if(!is_tinytex()) {
+        return('Please install TinyTex using tinytex::install_tinytex(bundle = "TinyTeX")')
+      }
       rmd_content <- sprintf('
 ---
 output: pdf_document
