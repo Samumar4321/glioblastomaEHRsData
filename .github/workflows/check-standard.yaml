@@ -48,10 +48,18 @@ jobs:
       - if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y tcl tk xvfb
-          Xvfb :99 -screen 0 1024x768x16 &
-          export DISPLAY=:99.0
-      - uses: r-lib/actions/check-r-package@v2
+          sudo apt-get install -y tcl tk xvfb        
+          
+      - if: runner.os != 'Linux'
+        uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
+
+      - if: runner.os == 'Linux'
+        run: |
+          xvfb-run --auto-servernum --server-args="-screen 0 1024x768x16" \
+            R CMD build .
+          PKG_TAR=$(ls *.tar.gz | tail -n 1)
+          xvfb-run --auto-servernum --server-args="-screen 0 1024x768x16" \
+            R CMD check "$PKG_TAR" --as-cran
