@@ -2,6 +2,7 @@ library(testthat)
 library(glioblastomaEHRsData)
 
 test_that("Tainan2020datasetDescriptiveStatistics() return a list of 2 named elements", {
+  skip_if_not(capabilities("tcltk"), "Tk non disponibile")
   stats <- Tainan2020datasetDescriptiveStatistics()
   expect_type(stats, "list")
   expect_length(stats, 2)
@@ -9,6 +10,7 @@ test_that("Tainan2020datasetDescriptiveStatistics() return a list of 2 named ele
 })
 
 test_that("Tainan2020datasetDescriptiveStatistics(show = 'all') return a list of 2 named elements", {
+  skip_if_not(capabilities("tcltk"), "Tk non disponibile")
   stats <- Tainan2020datasetDescriptiveStatistics(show = "all")
   expect_type(stats, "list")
   expect_length(stats, 2)
@@ -16,6 +18,7 @@ test_that("Tainan2020datasetDescriptiveStatistics(show = 'all') return a list of
 })
 
 test_that("Tainan2020datasetDescriptiveStatistics(show = 'continuous') return the correct summarytools object", {
+  skip_if_not(capabilities("tcltk"), "Tk non disponibile")
   stats <- Tainan2020datasetDescriptiveStatistics(show = "continuous")
   expect_s3_class(stats, c("summarytools", "matrix"))
   n_vars <- sum(sapply(tainan2020dataset, is.numeric))
@@ -24,6 +27,7 @@ test_that("Tainan2020datasetDescriptiveStatistics(show = 'continuous') return th
 })
 
 test_that("Tainan2020datasetDescriptiveStatistics(show = 'categorical') return the correct summarytools object", {
+  skip_if_not(capabilities("tcltk"), "Tk non disponibile")
   stats <- Tainan2020datasetDescriptiveStatistics(show = "categorical")
   expect_s3_class(stats, c("summarytools", "list"))
   n_vars <- sum(sapply(tainan2020dataset, is.factor))
