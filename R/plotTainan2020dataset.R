@@ -40,13 +40,13 @@
 #'
 #' \donttest{
 #' # Bivariate plot saved in the specified directory with the chosen name and extension
-#' plotTainan2020dataset("age_years", "chemo_yes1_no0", savePath = "plots/age_chemo_boxplot.png")
+#' plotTainan2020dataset("age_years", "chemo_yes1_no0", savePath = NA)
 #'
 #' # Bivariate plot saved in the working directory with the chosen name and extension
-#' plotTainan2020dataset("PFS_months", "OS_months", savePath = "OSvsPFS_plot.pdf")
+#' plotTainan2020dataset("PFS_months", "OS_months", savePath = NA)
 #'
 #' # Bivariate plot saved in a path directory with default name and extension
-#' plotTainan2020dataset("PFS_months", "radiation_dose_Gy", savePath = "tainan_numerci_plots")
+#' plotTainan2020dataset("PFS_months", "radiation_dose_Gy", savePath = NA)
 #' }
 #'
 #' @importFrom DataExplorer plot_histogram plot_bar plot_boxplot

@@ -56,13 +56,13 @@ plotUtrecht2019dataset("post_surgery_therapy_none0_monotherapy1_RTandTMZ2", "OS_
 
 \donttest{
 # Bivariate plot saved in the specified directory with the chosen name and extension
-plotUtrecht2019dataset("age_years", "KPS_less70.0_more70.1", savePath = "plots/age_KPS_boxplot.png")
+plotUtrecht2019dataset("age_years", "KPS_less70.0_more70.1", savePath = NA)
 
 # Univariate plot save in the working directory with the chosen name and extension
-plotUtrecht2019dataset("survived_yes1_no0", savePath = "survival_plot.png")
+plotUtrecht2019dataset("survived_yes1_no0", savePath = NA)
 
 # Bivariate plot save in the path directory using the default name
-plotUtrecht2019dataset("survived_yes1_no0", savePath = "utrecht_plots")
+plotUtrecht2019dataset("survived_yes1_no0", savePath = NA)
 }
 
 }

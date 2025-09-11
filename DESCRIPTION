@@ -1,41 +1,42 @@
-Package: glioblastomaEHRsData
 Type: Package
-Title: Descriptive Analisys on 3 EHRs Datasets
+Package: glioblastomaEHRsData
+Title: Descriptive Analysis on 3 EHRs Datasets
 Version: 0.1.0
 Authors@R: c(
-    person(
-      "Samuele", "Marelli",
-      email = "samu2003.marelli@gmail.com",
-      role = c("aut", "cre")
-    ),
-    person(
-      "Davide", "Chicco",
-      email = "davide.chicco@gmail.com",
-      role = "aut"
-    )
+    person("Samuele", "Marelli", , "samu2003.marelli@gmail.com", role = c("aut", "cre")),
+    person("Davide", "Chicco", , "davide.chicco@gmail.com", role = "aut")
   )
-Description: Provides functions to load and analyze three open EElectronic Health
-             Records (EHRs) datasets of patients diagnosed with glioblastoma, 
-             previously released under the Creative Common Attribution 4.0 International
-             (CC BY 4.0) license.
-             Users can generate basic descriptive statistics, frequency tables 
-             and save descriptive sumary tables, as well as create and export 
-             univariate or bivariate plots.
-             The package is designed to work with the included datasets and to 
-             facilitate quick exploratory data analysis and reporting.
-             More information about these three datasets of EHRs of patients with 
-             glioblastoma can be found inj this article: Gabriel Cerono, Ombretta 
-             Melaiu, and Davide Chicco, 'Clinical feature ranking based on ensemble 
-             machine learningreveals top survival factors for glioblastoma multiforme',
-             Journal of Healthcare Informatics Research 8, 1-18 (March 2024).
-             <10.1007/s41666-023-00138-1>.
-Encoding: UTF-8
+Description: Provides functions to load and analyze three open Electronic
+    Health Records (EHRs) datasets of patients diagnosed with
+    glioblastoma, previously released under the Creative Common
+    Attribution 4.0 International (CC BY 4.0) license.  Users can generate
+    basic descriptive statistics, frequency tables and save descriptive
+    summary tables, as well as create and export univariate or bivariate
+    plots.  The package is designed to work with the included datasets and
+    to facilitate quick exploratory data analysis and reporting.  More
+    information about these three datasets of EHRs of patients with
+    glioblastoma can be found in this article: Gabriel Cerono, Ombretta
+    Melaiu, and Davide Chicco, 'Clinical feature ranking based on ensemble
+    machine learning reveals top survival factors for glioblastoma
+    multiforme', Journal of Healthcare Informatics Research 8, 1-18 (March
+    2024).  <10.1007/s41666-023-00138-1>.
 License: GPL-3
-LazyData: true
-RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
-Imports: DataExplorer, summarytools, table1, flextable, ggplot2, rmarkdown, tinytex
+Imports: 
+    DataExplorer,
+    flextable,
+    ggplot2,
+    rmarkdown,
+    summarytools,
+    table1,
+    tinytex
 Suggests: 
-    testthat (>= 3.0.0), ragg
+    ragg,
+    testthat (>= 3.0.0),
+    tcltk
+SystemRequirements: pandoc (>= 1.12.3) - http://pandoc.org
 Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
