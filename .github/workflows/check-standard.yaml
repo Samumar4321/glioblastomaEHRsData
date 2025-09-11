@@ -39,12 +39,12 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
-          
+
       - name: Install system dependencies on Linux
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb tcl tk libtcl-dev libtk-dev
+          sudo apt-get install -y xvfb tcl-dev tk-dev
 
       
       - name: Start Xvfb on Linux
