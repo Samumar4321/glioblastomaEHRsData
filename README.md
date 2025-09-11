@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![Rhub](https://github.com/Samumar4321/glioblastomaEHRsData/actions/workflows/rhub.yaml/badge.svg)](https://github.com/Samumar4321/glioblastomaEHRsData/actions/workflows/rhub.yaml)
+[![R-CMD-check.yaml](https://github.com/Samumar4321/glioblastomaEHRsData/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/Samumar4321/glioblastomaEHRsData/actions/workflows/check-standard.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/glioblastomaEHRsData)](https://cran.r-project.org/package=glioblastomaEHRsData)
 <!-- badges: end -->
 
