@@ -5,10 +5,6 @@ on:
     branches: [main, master]
   pull_request:
 
-before_install:
-    - export DISPLAY=:99.0
-    - sh -e /etc/init.d/xvfb start
-
 name: R-CMD-check.yaml
 
 permissions: read-all
@@ -43,6 +39,21 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
+          
+      - name: Install system dependencies on Linux
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb tcl tk libtcl-dev libtk-dev
+
+      
+      - name: Start Xvfb on Linux
+        if: runner.os == 'Linux'
+        run: |
+          Xvfb :99 -screen 0 1024x768x16 &
+          export DISPLAY=:99.0
+          sleep 3
+
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
