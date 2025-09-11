@@ -23,7 +23,7 @@ test_that("descriptiveTableMunich2019dataset(savePath = 'tables/munich_test_tabl
 })
 
 test_that("descriptiveTableMunich2019dataset(savePath = 'munich_test_table.pdf') return a table1 object and save a pdf file", {
-  skip_on_cran()
+  skip_on_ci()
   path <- file.path(tempdir(), "munich_test_table.pdf")
   t1 <- descriptiveTableMunich2019dataset(savePath = path)
   expect_s3_class(t1, c("table1", "character"))

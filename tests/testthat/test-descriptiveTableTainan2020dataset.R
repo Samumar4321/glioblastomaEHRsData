@@ -23,7 +23,7 @@ test_that("descriptiveTableTainan2020dataset(savePath = 'tables/tainan_test_tabl
 })
 
 test_that("descriptiveTableTainan2020dataset(savePath = 'tainan_test_table.pdf') return a table1 object and save a pdf file", {
-  skip_on_cran()
+  skip_on_ci()
   path <- file.path(tempdir(), "tainan_test_table.pdf")
   t1 <- descriptiveTableTainan2020dataset(savePath = path)
   expect_s3_class(t1, c("table1", "character"))

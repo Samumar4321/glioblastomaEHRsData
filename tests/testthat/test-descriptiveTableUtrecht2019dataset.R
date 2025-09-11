@@ -23,7 +23,7 @@ test_that("descriptiveTableUtrecht2019dataset(savePath = 'tables/utrecht_test_ta
 })
 
 test_that("descriptiveTableUtrecht2019dataset(savePath = 'utrecht_test_table.pdf') return a table1 object and save a pdf file", {
-  skip_on_cran()
+  skip_on_ci()
   path <- file.path(tempdir(), "utrecht_test_table.pdf")
   t1 <- descriptiveTableUtrecht2019dataset(savePath = path)
   expect_s3_class(t1, c("table1", "character"))
