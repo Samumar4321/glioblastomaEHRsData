@@ -1,6 +1,6 @@
 Type: Package
 Package: glioblastomaEHRsData
-Title: Descriptive Analysis on 3 EHRs Datasets
+Title: Descriptive Analysis on three Glioblastoma EHRs Datasets
 Version: 0.1.0
 Authors@R: c(
     person("Samuele", "Marelli", , "samu2003.marelli@gmail.com", role = c("aut", "cre")),
