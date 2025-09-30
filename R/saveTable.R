@@ -18,7 +18,7 @@
 #' The format must be: 'filepath/filename.extension' where:
 #'   - filepath is the directory (must already exist), default to the working directory;
 #'   - filename is the name of the file, default to default_filename;
-#'   - extension must be one of 'png', 'pdf' or 'html, must exists unless using the default file name.
+#'   - extension must be one of 'png', 'pdf' or 'html', must exists unless using the default file name.
 #'
 #'
 #' @return 0 if the save was successfull, or a warning message if there were errors.
